@@ -1,6 +1,4 @@
 import React from 'react';
-
-// Sample icons from Heroicons for demonstration
 import { FaBicycle, FaCampground, FaVolleyballBall, FaPaw, FaTree, FaFire } from 'react-icons/fa'; 
 
 const Activities = () => (

@@ -4,51 +4,43 @@ import image2 from '../assets/retreat.jpg';
 import video1 from '../assets/video1.mp4';
 
 const Home = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start with the video on load
-  const [showButtons, setShowButtons] = useState(false); // State to toggle button visibility
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [showButtons, setShowButtons] = useState(false);
 
-  // Array containing the images and video for the slider
   const slides = [
     { type: 'image', src: image1 },
     { type: 'video', src: video1 },
     { type: 'image', src: image2 }
   ];
 
-  // Function to handle moving to the next slide
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
 
-  // Function to handle moving to the previous slide
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
   };
 
-  // Detect scrolling and toggle button visibility
   useEffect(() => {
     let timeoutId;
 
     const handleScroll = () => {
-      setShowButtons(true); // Show buttons on scroll
+      setShowButtons(true);
 
-      // Hide buttons after 3 seconds of inactivity
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         setShowButtons(false);
-      }, 3000); // 3 seconds of no scrolling
+      }, 3000);
     };
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId);
     };
   }, []);
 
-  // Rendering function for the background slide
   const renderSlide = () => {
     const currentSlide = slides[currentIndex];
     if (currentSlide.type === 'video') {
@@ -99,10 +91,10 @@ const Home = () => {
             onClick={prevSlide}
             className="slider-button bg-white text-black rounded-full p-2 flex justify-center items-center focus:outline-none lg:absolute lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2"
             style={{
-              width: '8vw',  // Responsive size
-              height: '8vw', // Responsive size
-              maxWidth: '50px',  // Limit maximum size
-              maxHeight: '50px'  // Limit maximum size
+              width: '8vw', 
+              height: '8vw', 
+              maxWidth: '50px', 
+              maxHeight: '50px'  
             }}
           >
             {/* Left Arrow (SVG) */}
@@ -116,10 +108,10 @@ const Home = () => {
             onClick={nextSlide}
             className="slider-button bg-white text-black rounded-full p-2 flex justify-center items-center focus:outline-none lg:absolute lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2"
             style={{
-              width: '8vw',  // Responsive size
-              height: '8vw', // Responsive size
-              maxWidth: '50px',  // Limit maximum size
-              maxHeight: '50px'  // Limit maximum size
+              width: '8vw', 
+              height: '8vw',
+              maxWidth: '50px', 
+              maxHeight: '50px'
             }}
           >
             {/* Right Arrow (SVG) */}
