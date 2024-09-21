@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/retreat.jpg';
-import video1 from '../assets/video1.mp4';
+import image3 from '../assets/tents.JPG';
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -9,7 +9,7 @@ const Home = () => {
 
   const slides = [
     { type: 'image', src: image1 },
-    { type: 'video', src: video1 },
+    { type: 'image', src: image3 },
     { type: 'image', src: image2 }
   ];
 
@@ -43,17 +43,6 @@ const Home = () => {
 
   const renderSlide = () => {
     const currentSlide = slides[currentIndex];
-    if (currentSlide.type === 'video') {
-      return (
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={currentSlide.src}
-          autoPlay
-          muted
-          loop
-        />
-      );
-    }
     return (
       <img
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -121,6 +110,7 @@ const Home = () => {
           </button>
         </div>
       </div>
+      
     </section>
   );
 };

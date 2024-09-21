@@ -1,19 +1,32 @@
 import React from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
 
-const Footer = () => (
+const Footer = () => {
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' }); // Adjust breakpoint as needed
+
+  return (
     <footer className="bg-customGreen p-6 text-white text-center">
-    <p>SR Eco Retreat &copy; {new Date().getFullYear()}</p>
-    <div className="mt-4 flex justify-center space-x-6">
-      <a href="https://facebook.com" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
-        <FaFacebook size={24} />
-      </a>
-      <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
-        <FaInstagram size={24} />
-      </a>
-    </div>
-    <p className="mt-4">Contact us: +91-6361120392</p>
-  </footer>
-);
+      <p>SR Eco Retreat &copy; {new Date().getFullYear()}</p>
+      <div className="mt-4 flex justify-center space-x-6">
+        <a href="https://www.youtube.com/@SREcoRetreat" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+          <FaYoutube size={24} />
+        </a>
+        <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+          <FaInstagram size={24} />
+        </a>
+      </div>
+      <p className="mt-4">
+        {isMobileOrTablet ? (
+          // Render phone number as a clickable link for mobile/tablet
+          <a href={`tel:+91-6361120392`}>Contact us: +91-6361120392</a>
+        ) : (
+          // Render phone number as plain text for desktop
+          <span>Contact us: +91-6361120392</span>
+        )}
+      </p>
+    </footer>
+  );
+};
 
 export default Footer;
