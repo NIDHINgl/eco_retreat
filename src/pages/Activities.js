@@ -4,7 +4,7 @@ import retreatImage2 from "../assets/retreatImage2.jpeg";
 import retreatImage3 from "../assets/retreatImage3.jpeg";
 import retreatImage4 from "../assets/retreatImage4.jpg";
 import retreatImage5 from "../assets/retreatImage5.jpeg";
-import retreatImage6 from "../assets/retreatImage6.jpeg;
+import retreatImage6 from "../assets/retreatImage6.jpeg";
 
 
 const Activities = () => (
