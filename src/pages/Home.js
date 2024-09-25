@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/retreat.jpg';
-import image3 from '../assets/tents.JPG';
+import image1 from '../assets/slide1.jpg';
+import image2 from '../assets/slide2.jpeg';
+import image3 from '../assets/slide3.jPeG';
+import image4 from '../assets/slide4.heif';
+import image5 from '../assets/slide5.JPG';
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -9,8 +11,10 @@ const Home = () => {
 
   const slides = [
     { type: 'image', src: image1 },
+    { type: 'image', src: image2 },
     { type: 'image', src: image3 },
-    { type: 'image', src: image2 }
+    { type: 'image', src: image4 },
+    { type: 'image', src: image5 }
   ];
 
   const nextSlide = () => {
