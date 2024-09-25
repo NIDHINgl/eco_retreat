@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import image1 from '../assets/slide1.jpg';
 import image2 from '../assets/slide2.jpeg';
 import image3 from '../assets/sliding3.jpeg';
-import image4 from '../assets/slide4.heif';
+import image4 from '../assets/slide4.jpg';
 import image5 from '../assets/slide5.JPG';
 
 const Home = () => {
