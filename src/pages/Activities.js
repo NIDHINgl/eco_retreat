@@ -16,7 +16,6 @@ const PreviousArrow = (props) => {
     );
 };
 
-// Custom Next Arrow
 const NextArrow = (props) => {
     const { onClick } = props;
     return (
@@ -45,9 +44,11 @@ const Activities = () => {
             <section className="py-16 px-4 bg-gray-50">
                 <h1 className="text-center text-4xl font-serif text-customBlack mb-4">Activities and Adventures</h1>
                 <div className="w-full bg-white py-6 mb-8">
-                    <p className="text-lg leading-relaxed font-light text-customBlack">
-                        At SR Eco Retreat, we provide a wide variety of outdoor and indoor activities, perfect for families, friends, and team outings looking to reconnect with nature or engage in fun-filled adventures. Whether you're seeking thrilling adventure activities near Bangalore or a peaceful evening by the campfire, our resort offers something for every visitor. Our activities range from hands-on farming experiences to cycling, trekking, and mud volleyball for adventure lovers. We also offer relaxing options like indoor games and rain dance, making SR Eco Retreat a top choice for weekend getaways near Bangalore. Explore, enjoy, and make unforgettable memories in this tranquil haven, one of the best nature resorts near Bangalore.
-                    </p>
+                    <div className="w-[90%] mx-auto">
+                        <p className="text-lg leading-relaxed font-light text-customBlack">
+                            At SR Eco Retreat, we provide a wide variety of outdoor and indoor activities, perfect for families, friends, and team outings looking to reconnect with nature or engage in fun-filled adventures. Whether you're seeking thrilling adventure activities near Bangalore or a peaceful evening by the campfire, our resort offers something for every visitor. Our activities range from hands-on farming experiences to cycling, trekking, and mud volleyball for adventure lovers. We also offer relaxing options like indoor games and rain dance, making SR Eco Retreat a top choice for weekend getaways near Bangalore. Explore, enjoy, and make unforgettable memories in this tranquil haven, one of the best nature resorts near Bangalore.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -125,18 +126,18 @@ const Activities = () => {
                 </div>
             </section>
             <section id="2" className="py-16 px-4 bg-gray-50">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                         <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                        Relaxation and Rejuvenation: Find Your Peace
+                            Relaxation and Rejuvenation: Find Your Peace
                         </h2>
 
                         <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        After an exhilarating day, unwind with our calming evening activities. Gather around a cozy campfire by the tranquil lake, where you can share stories and connect with fellow guests under a starlit sky. Experience the joy of our rain dance setup, which invites you to engage with nature in a playful, refreshing way.
+                            After an exhilarating day, unwind with our calming evening activities. Gather around a cozy campfire by the tranquil lake, where you can share stories and connect with fellow guests under a starlit sky. Experience the joy of our rain dance setup, which invites you to engage with nature in a playful, refreshing way.
                         </p>
 
                         <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        These evening activities create a perfect balance between excitement and tranquility, enabling you to relax and savor the beauty of the natural world around you.
+                            These evening activities create a perfect balance between excitement and tranquility, enabling you to relax and savor the beauty of the natural world around you.
                         </p>
                     </div>
 
@@ -183,33 +184,33 @@ const Activities = () => {
                     </div>
                     <div>
                         <h2 className="text-3xl font-bold mb-6 text-[#212121] font-serif">
-                        Indoor Fun and Events: Bond and Celebrate
+                            Indoor Fun and Events: Bond and Celebrate
                         </h2>
 
                         <p className="text-lg mb-4 text-[#212121] font-light font-sans leading-relaxed">
-                        On days when you prefer a quieter experience, SR Eco Retreat offers a variety of indoor games to keep the fun going. Engage in friendly competitions with foosball, chess, carom, and classic board games like Ludo. These activities provide an excellent opportunity for family bonding or a laid-back evening with friends.
+                            On days when you prefer a quieter experience, SR Eco Retreat offers a variety of indoor games to keep the fun going. Engage in friendly competitions with foosball, chess, carom, and classic board games like Ludo. These activities provide an excellent opportunity for family bonding or a laid-back evening with friends.
                         </p>
 
                         <p className="text-lg text-[#212121] font-light font-sans leading-relaxed">
-                        Additionally, our spacious open lawn, equipped with professional sound and lighting systems, is ideal for hosting events ranging from birthday celebrations to family gatherings, all set amidst the serene backdrop of nature. It’s the perfect venue for memorable pre-wedding photoshoots, providing a picturesque setting for your special moments.
+                            Additionally, our spacious open lawn, equipped with professional sound and lighting systems, is ideal for hosting events ranging from birthday celebrations to family gatherings, all set amidst the serene backdrop of nature. It’s the perfect venue for memorable pre-wedding photoshoots, providing a picturesque setting for your special moments.
                         </p>
                     </div>
 
                 </div>
             </section>
             <section id="2" className="py-16 px-4 bg-gray-50">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                         <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                        Staycation or Workcation: Balance Work and Relaxation
+                            Staycation or Workcation: Balance Work and Relaxation
                         </h2>
 
                         <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        SR Eco Retreat is not just a place for a quick getaway; it's an ideal destination for extended stays or workations. With high-speed internet and comfortable accommodations, you can effortlessly blend work with relaxation. Escape the hustle and bustle of city life while enjoying the fresh air and tranquility of our natural surroundings.
+                            SR Eco Retreat is not just a place for a quick getaway; it's an ideal destination for extended stays or workations. With high-speed internet and comfortable accommodations, you can effortlessly blend work with relaxation. Escape the hustle and bustle of city life while enjoying the fresh air and tranquility of our natural surroundings.
                         </p>
 
                         <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        Our resort is designed to cater to remote workers, offering 24/7 power backup, cycling tracks, and a workout room. Whether you’re seeking a peaceful retreat to enhance your productivity or looking to recharge your spirit, SR Eco Retreat provides the perfect setting for a fulfilling staycation near Bangalore.
+                            Our resort is designed to cater to remote workers, offering 24/7 power backup, cycling tracks, and a workout room. Whether you’re seeking a peaceful retreat to enhance your productivity or looking to recharge your spirit, SR Eco Retreat provides the perfect setting for a fulfilling staycation near Bangalore.
                         </p>
                     </div>
 

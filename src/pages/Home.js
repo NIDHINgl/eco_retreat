@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/retreat.jpg';
-import image3 from '../assets/tents.JPG';
+import image1 from '../assets/slide1.jpg';
+import image2 from '../assets/slide2.jpeg';
+import image3 from '../assets/Sliding3.jpeg';
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
