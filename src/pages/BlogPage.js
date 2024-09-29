@@ -9,7 +9,6 @@ const BlogPage = () => {
     <>
       <HeaderBlog />
     <section className="py-16 px-4 bg-gray-100 mt-10">
-      {/* Blog Header */}
       <div className="max-w-7xl mx-auto text-center mb-10">
         <h1 className="text-5xl font-bold text-green-800 mb-6">Welcome to Thotada Mane – Your Ultimate Karnataka Village Escape</h1>
         <p className="text-xl text-gray-700">
@@ -17,13 +16,11 @@ const BlogPage = () => {
         </p>
       </div>
 
-      {/* Images */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <img src={retreatImage} alt="Retreat" className="rounded-lg shadow-lg w-full h-72 object-cover" />
         <img src={farmhouseImage} alt="Farmhouse" className="rounded-lg shadow-lg w-full h-72 object-cover" />
       </div>
 
-      {/* Accommodations */}
       <div className="max-w-7xl mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-green-700 mb-6">Accommodations</h2>
         <ul className="text-gray-700 text-lg space-y-4">
@@ -33,7 +30,6 @@ const BlogPage = () => {
         </ul>
       </div>
 
-      {/* Activities and Facilities */}
       <div className="max-w-7xl mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-green-700 mb-6">Activities and Facilities</h2>
         <ul className="text-gray-700 text-lg space-y-4">
@@ -47,7 +43,6 @@ const BlogPage = () => {
         </ul>
       </div>
 
-      {/* Dining Section */}
       <div className="max-w-7xl mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-green-700 mb-6">Dining</h2>
         <p className="text-gray-700 text-lg">

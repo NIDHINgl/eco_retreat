@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Home from './Home';
-import Accommodations from './Accommodations';
-import Activities from './Activities';
-import MapSection from './MapSection';
+import CustomerReviews from '../components/CustomerReviews';
+import Details from './Details';
 import VideoSection from './VideoSection';
 
 
@@ -10,15 +9,12 @@ const Landing = () => {
 
   return (
     <div>
-    {/* <Header /> */}
     <main>
       <Home />
-      <Accommodations />
-      <Activities />
+      <Details />
       <VideoSection />
-      <MapSection />
+      <CustomerReviews />
     </main>
-    {/* <Footer /> */}
   </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 const VideoSection = () => (
   <section id="video" className="py-16 px-4 bg-gray-100">
-    <h2 className="text-3xl font-bold text-center mb-10">Watch Our Retreat in Action</h2>
+    <h2 className="text-3xl font-bold font-serif text-customBlack text-center mb-10">Watch Our Retreat in Action</h2>
     <div className="max-w-4xl mx-auto">
       <div className="relative pb-9/16 h-0 overflow-hidden max-w-full" style={{ paddingBottom: '56.25%' }}>
         <iframe

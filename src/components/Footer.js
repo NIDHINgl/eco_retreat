@@ -1,12 +1,12 @@
 import React from 'react';
-import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaTripadvisor, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
 import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' }); // Adjust breakpoint as needed
 
   return (
-    <footer className="bg-customGreen p-6 text-white text-center">
+    <footer className="bg-customBlack p-6 text-white text-center">
       <p>SR Eco Retreat &copy; {new Date().getFullYear()}</p>
       <div className="mt-4 flex justify-center space-x-6">
         <a href="https://www.youtube.com/@SREcoRetreat" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
@@ -14,6 +14,15 @@ const Footer = () => {
         </a>
         <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
           <FaInstagram size={24} />
+        </a>
+        <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+          <FaFacebookF size={24} />
+        </a>
+        <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+          <FaTripadvisor size={24} />
+        </a>
+        <a href="https://www.linkedin.com/in/sr-eco-retreat-89b261330" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+          <FaLinkedinIn size={24} />
         </a>
       </div>
       <p className="mt-4">
