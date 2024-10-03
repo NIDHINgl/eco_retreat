@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Icon imports
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; 
 
 const ContactUs = () => {
     return (
-        <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100">
+        <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100 mt-6">
 
             <div className="max-w-6xl mx-auto text-center mb-16">
                 <h1 className="text-center text-4xl font-serif text-customBlack mb-4">Get In Touch</h1>

@@ -3,7 +3,7 @@ import { FaInstagram, FaYoutube, FaTripadvisor, FaLinkedinIn, FaFacebookF } from
 import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' }); // Adjust breakpoint as needed
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' }); 
 
   return (
     <footer className="bg-customBlack p-6 text-white text-center">
@@ -15,10 +15,10 @@ const Footer = () => {
         <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
           <FaInstagram size={24} />
         </a>
-        <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/profile.php?id=61566486202483&mibextid=LQQJ4d" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
           <FaFacebookF size={24} />
         </a>
-        <a href="https://www.instagram.com/sr_eco_retreat?igsh=b2JpaDF5ZDljY2w1" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.tripadvisor.in/" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
           <FaTripadvisor size={24} />
         </a>
         <a href="https://www.linkedin.com/in/sr-eco-retreat-89b261330" className="hover:text-gray-300 transition duration-300" target="_blank" rel="noopener noreferrer">
@@ -27,10 +27,8 @@ const Footer = () => {
       </div>
       <p className="mt-4">
         {isMobileOrTablet ? (
-          // Render phone number as a clickable link for mobile/tablet
           <a href={`tel:+91-6361120392`}>Contact us: +91-6361120392</a>
         ) : (
-          // Render phone number as plain text for desktop
           <span>Contact us: +91-6361120392</span>
         )}
       </p>

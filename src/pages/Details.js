@@ -1,9 +1,6 @@
 import React from 'react';
 import tentsImage from "../assets/tents.JPG";
 
-// Import Google Fonts in index.html or App.js
-// <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Suravaram&display=swap" rel="stylesheet" />
-
 const Details = () => {
   return (
     <div className="container mx-auto px-4 mt-10 font-sans">
@@ -58,6 +55,21 @@ const Details = () => {
           </p>
         </div>
       </div>
+
+      <div className="flex flex-col md:flex-row-reverse items-center py-8 border-b border-gray-200">
+        <div className="md:w-1/3 mb-4 md:mb-0">
+          <img src={tentsImage} alt="Right Image" className="w-full h-auto rounded-lg shadow-md" />
+        </div>
+        <div className="md:w-2/3 md:pr-8">
+          <h2 className="text-2xl font-serif text-customBlack mb-4" style={{ fontFamily: '"Suravaram", serif' }}>
+          Comfortable Accommodations and Delicious Farm-Fresh Cuisine
+          </h2>
+          <p className="text-lg leading-relaxed text-gray-700 font-light">
+          Our retreat offers a variety of accommodations to suit every traveler. Whether you're seeking a private house stay near Bangalore or a cozy room for a peaceful escape, we have you covered. Choose from private rooms, spacious dormitories, or adventurous tent stays by the lake for a true camping experience near Bangalore. Our kitchen serves delicious farm-fresh meals, providing an authentic farm-to-table experience at one of the top farmhouse stays near Bangalore.
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 };

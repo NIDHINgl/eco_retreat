@@ -1,9 +1,11 @@
+
+
+
 import React, { useState } from 'react';
 import retreatImage from "../assets/private-house.JPG";
 import farmhouseImage from "../assets/tents.JPG";
-import './Gallery.css'; // Custom styles for the gallery
+import './Gallery.css'; 
 
-// Sample data (could be fetched dynamically)
 const galleryItems = [
   { id: 1, src: retreatImage, alt: 'Private House Retreat', type: 'image' },
   { id: 2, src: farmhouseImage, alt: 'Farmhouse Tents', type: 'image' },
@@ -11,23 +13,20 @@ const galleryItems = [
   { id: 4, src: farmhouseImage, alt: 'Farmhouse Tents', type: 'image' },
   { id: 5, src: retreatImage, alt: 'Private House Retreat', type: 'image' },
   { id: 6, src: farmhouseImage, alt: 'Farmhouse Tents', type: 'image' },
-  // More images here...
+
 ];
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // Function to open modal when an image is clicked
   const openModal = (item) => {
     setSelectedItem(item);
   };
 
-  // Function to close modal
   const closeModal = () => {
     setSelectedItem(null);
   };
 
-  // Function to handle backdrop click (closes the modal if clicked outside the image)
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       closeModal();
@@ -35,7 +34,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-16 px-4 bg-white flex-grow">
+    <section id="gallery" className="py-16 px-4 bg-white flex-grow mt-16">
       <div className="max-w-7xl mx-auto">
       <h1 className="text-center text-4xl font-serif text-customBlack mb-4">Gallery</h1>
                 <div className="w-full bg-white py-6 mb-8">

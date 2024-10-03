@@ -6,10 +6,13 @@ import image3 from '../assets/Sliding3.jpeg';
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showButtons, setShowButtons] = useState(false);
+
   const slides = [
-    { type: 'image', src: image1 },
-    { type: 'image', src: image2 },
-    { type: 'image', src: image3 },
+    { type: 'image', src: image1, description: 'Reconnect with Nature at SR Eco Retreat – Your Perfect Weekend Getaway near Bangalore!' },
+    { type: 'image', src: image2, description: 'Experience Hands-On Farming and Animal Interaction at Our Eco-Friendly Farm Stay near Bangalore!' },
+    { type: 'image', src: image3, description: 'Relax in Comfortable Accommodations Surrounded by Nature at One of the Best Resorts near Bangalore!' },
+    { type: 'image', src: image1, description: 'Savor Farm-Fresh, Organic Meals from Local Ingredients at Our Eco Resort near Bangalore!' },
+    { type: 'image', src: image2, description: 'Adventure Awaits: Trek, Cycle, and Explore Scenic Trails at Our Nature Resort near Bangalore!' },
   ];
 
   const nextSlide = () => {
@@ -23,8 +26,8 @@ const Home = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextSlide();
-    }, 5000); 
-    return () => clearInterval(intervalId); 
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -66,18 +69,18 @@ const Home = () => {
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-    
       <div className="absolute inset-0 overflow-hidden">
         {renderSlides()}
         <div className="absolute inset-0 bg-black opacity-50 pointer-events-none" />
       </div>
 
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center font-serif">
           Welcome to SR Eco Retreat
         </h1>
-        <p className="text-lg md:text-xl text-center">
-          Your Ultimate Karnataka Village Escape
+
+        <p className="text-lg md:text-xl text-center font-montserrat">
+          {slides[currentIndex].description}
         </p>
 
         <div
