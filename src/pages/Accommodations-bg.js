@@ -54,7 +54,10 @@ const Accommodations = () => {
     };
 
     return (
-        <section className="py-16 px-4 bg-gray-50 mt-16">
+        <section
+            className="relative py-16 px-4 bg-cover bg-center bg-no-repeat bg-gray-50 mt-16"
+            style={{ backgroundImage: `url(${deluxeRoomImage})` }} 
+        >
             <h1 className="text-center text-4xl font-serif text-customBlack mb-2">Accommodations and Dining</h1>
             <div className="w-full bg-white py-6 mb-4">
                 <div className="w-[90%] mx-auto">
