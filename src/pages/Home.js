@@ -75,11 +75,11 @@ const Home = () => {
       </div>
 
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center font-serif">
+        {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center font-serif">
           Welcome to SR Eco Retreat
-        </h1>
+        </h1> */}
 
-        <p className="text-lg md:text-xl text-center font-montserrat">
+        <p className="text-5xl md:text-xl text-center text-raleway tracking-10 uppercase font-medium">
           {slides[currentIndex].description}
         </p>
 

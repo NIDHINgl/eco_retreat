@@ -85,45 +85,45 @@ const Accommodations = () => {
                         <h3 className="text-2xl font-serif font-bold mb-4 text-customBlack mt-4">
                             {accommodation.title}
                         </h3>
-                        <p className="text-gray-600 text-base font-sans text-customBlack">
+                        <p className="text-base font-sans text-customBlack">
                             {accommodation.text}
                         </p>
                     </div>
                 ))}
             </div>
-            <div className="w-full bg-white py-6 mt-8">
-                <div className="w-[90%] mx-auto">
-                    <h2 className="text-center text-3xl font-serif text-customBlack mb-6">Dining</h2>
-                    <p className="text-lg leading-relaxed font-light text-customBlack text-center">
-                        Farm-Fresh Cuisine<br />
-                        Our kitchen serves delicious farm-fresh meals using natural ingredients from our farm, providing authentic Karnataka delicacies and North Indian favorites. Enjoy the best of eco-friendly resorts near Bangalore, where food is an integral part of the experience.
-                    </p>
+            <div className="w-full bg-white/70 backdrop-blur-lg py-12 px-8 mt-20 rounded-2xl shadow-xl">
+                <h2 className="text-center text-4xl font-semibold text-gray-800 mb-10">
+                    Dining
+                </h2>
+                <p className="text-lg leading-relaxed font-light text-gray-700 text-center mb-16 tracking-wider">
+                    Farm-Fresh Cuisine<br />
+                    Our kitchen serves farm-fresh meals with natural ingredients, offering authentic Karnataka delicacies and North Indian favorites. Enjoy food as an essential part of your experience at SR Eco Retreat.
+                </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                        <div className="text-center">
-                            <img src={dish1Image} alt="South Indian" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">South Indian</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish2Image} alt="North Indian" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">North Indian</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish3Image} alt="Chinese" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Chinese</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish4Image} alt="Sea food" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Sea food</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish5Image} alt="Saffron Rice" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Saffron Rice</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish6Image} alt="Roasted Veg Balls" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Roasted Veg Balls</h3>
-                        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <div className="text-center">
+                        <img src={dish1Image} alt="South Indian" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">South Indian</h3>
+                    </div>
+                    <div className="text-center">
+                        <img src={dish2Image} alt="North Indian" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">North Indian</h3>
+                    </div>
+                    <div className="text-center">
+                        <img src={dish3Image} alt="Chinese" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">Chinese</h3>
+                    </div>
+                    <div className="text-center">
+                        <img src={dish4Image} alt="Seafood" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">Seafood</h3>
+                    </div>
+                    <div className="text-center">
+                        <img src={dish5Image} alt="Mexican" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">Mexican</h3>
+                    </div>
+                    <div className="text-center">
+                        <img src={dish6Image} alt="Italian" className="w-48 h-48 object-cover rounded-full mb-4 mx-auto transition-transform duration-300 hover:scale-110" />
+                        <h3 className="text-2xl font-semibold text-gray-800">Italian</h3>
                     </div>
                 </div>
             </div>
