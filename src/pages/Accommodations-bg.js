@@ -3,8 +3,6 @@ import Slider from 'react-slick';
 import deluxeRoomImage from "../assets/deluxe-room.JPG";
 import dormitoryImage from "../assets/dormitory.JPG";
 import privateHouseImage from "../assets/private-house.JPG";
-import headerBackgroundImage from "../assets/activity-bg.jpg"; // Background image for the rest of the page
-import backgroundImage from "../assets/backgroundImage.jpg";
 import tentsImage from "../assets/tents.JPG";
 import dish1Image from "../assets/tents.JPG";
 import dish2Image from "../assets/tents.JPG";
@@ -12,8 +10,6 @@ import dish3Image from "../assets/tents.JPG";
 import dish4Image from "../assets/tents.JPG";
 import dish5Image from "../assets/tents.JPG";
 import dish6Image from "../assets/tents.JPG";
-import 'animate.css';
-import { motion } from 'framer-motion';
 
 const data = [
     {
@@ -57,39 +53,12 @@ const Accommodations = () => {
         ),
     };
 
-
-    const sectionVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-    };
-    
     return (
-        <div
-        className="relative"
-        style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundAttachment: 'fixed',
-            backgroundSize: 'cover',
-            minHeight: '100vh',
-        }}
-    >
-        {/* Header Section with Fixed Background Image */}
-        <motion.section
-            className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
-            style={{
-                backgroundImage: `url(${headerBackgroundImage})`,
-            }}
-            initial="hidden"
-            animate="visible"
-            variants={sectionVariants}
-              transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
+        <section
+            className="relative py-16 px-4 bg-cover bg-center bg-no-repeat bg-gray-50 mt-16"
+            style={{ backgroundImage: `url(${deluxeRoomImage})` }} 
         >
-            <div className="absolute inset-0 bg-black opacity-70"></div>
-            <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white z-10 text-center shadow-2xl">
-            Accommodations and Dining
-
-            </h1>
-        </motion.section>
+            <h1 className="text-center text-4xl font-serif text-customBlack mb-2">Accommodations and Dining</h1>
             <div className="w-full bg-white py-6 mb-4">
                 <div className="w-[90%] mx-auto">
                     <p className="text-lg leading-relaxed font-light text-customBlack">
@@ -119,20 +88,19 @@ const Accommodations = () => {
                         <h3 className="text-2xl font-serif font-bold mb-4 text-customBlack mt-4">
                             {accommodation.title}
                         </h3>
-                        <p className="text-base font-sans text-customBlack">
+                        <p className="text-gray-600 text-base font-sans text-customBlack">
                             {accommodation.text}
                         </p>
                     </div>
                 ))}
             </div>
-            <div className="w-full bg-white/70 backdrop-blur-lg py-12 px-8 mt-20 rounded-2xl shadow-xl">
-                <h2 className="text-center text-4xl font-semibold text-gray-800 mb-10">
-                    Dining
-                </h2>
-                <p className="text-lg leading-relaxed font-light text-gray-700 text-center mb-16 tracking-wider">
-                    Farm-Fresh Cuisine<br />
-                    Our kitchen serves farm-fresh meals with natural ingredients, offering authentic Karnataka delicacies and North Indian favorites. Enjoy food as an essential part of your experience at SR Eco Retreat.
-                </p>
+            <div className="w-full bg-white py-6 mt-8">
+                <div className="w-[90%] mx-auto">
+                    <h2 className="text-center text-3xl font-serif text-customBlack mb-6">Dining</h2>
+                    <p className="text-lg leading-relaxed font-light text-customBlack text-center">
+                        Farm-Fresh Cuisine<br />
+                        Our kitchen serves delicious farm-fresh meals using natural ingredients from our farm, providing authentic Karnataka delicacies and North Indian favorites. Enjoy the best of eco-friendly resorts near Bangalore, where food is an integral part of the experience.
+                    </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                         <div className="text-center">
@@ -161,8 +129,8 @@ const Accommodations = () => {
                         </div>
                     </div>
                 </div>
-            
-        </div>
+            </div>
+        </section>
     );
 };
 
