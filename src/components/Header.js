@@ -44,11 +44,11 @@ const Header = () => {
             <div className="text-white font-bold text-2xl font-cinzel">SR Eco Retreat</div>
         </div>
         <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-white hover:text-gray-300 font-serif font-bold transition duration-300">Home</Link>
-            <Link to="/accommodations" className="text-white hover:text-gray-300 font-serif font-bold transition duration-300">Accommodations</Link>
-            <Link to="/activities" className="text-white hover:text-gray-300 font-serif font-bold transition duration-300">Activities</Link>
-            <Link to="/gallery" className="text-white hover:text-gray-300 font-serif font-bold transition duration-300">Gallery</Link>
-            <Link to="/contact" className="text-white hover:text-gray-300 font-serif font-bold transition duration-300">Contact Us</Link>
+            <Link to="/" className="text-white hover:text-gray-300 font-raleway font-medium transition duration-300">Home</Link>
+            <Link to="/accommodations" className="text-white hover:text-gray-300 font-raleway font-medium transition duration-300">Accommodations</Link>
+            <Link to="/activities" className="text-white hover:text-gray-300 font-raleway font-medium transition duration-300">Activities</Link>
+            <Link to="/gallery" className="text-white hover:text-gray-300 font-raleway font-medium transition duration-300">Gallery</Link>
+            <Link to="/contact" className="text-white hover:text-gray-300 font-raleway font-medium transition duration-300">Contact Us</Link>
         </nav>
 
         <button
@@ -62,10 +62,10 @@ const Header = () => {
     {isMenuOpen && (
         <nav className={`md:hidden ${isScrolled || !isHome ? 'bg-customBlack' : 'bg-transparent'} text-white px-6 py-4 space-y-2 font-poppins`}>
             <Link to="/" className="block py-2 font-poppins" onClick={handleMenu}>Home</Link>
-            <Link to="/accommodations" className="block py-2 font-serif" onClick={handleMenu}>Accommodations</Link>
-            <Link to="/activities" className="block py-2 font-serif" onClick={handleMenu}>Activities</Link>
-            <Link to="/gallery" className="block py-2 font-serif" onClick={handleMenu}>Gallery</Link>
-            <Link to="/contact" className="block py-2 font-serif" onClick={handleMenu}>Contact Us</Link>
+            <Link to="/accommodations" className="block py-2 font-raleway" onClick={handleMenu}>Accommodations</Link>
+            <Link to="/activities" className="block py-2 font-raleway" onClick={handleMenu}>Activities</Link>
+            <Link to="/gallery" className="block py-2 font-raleway" onClick={handleMenu}>Gallery</Link>
+            <Link to="/contact" className="block py-2 font-raleway" onClick={handleMenu}>Contact Us</Link>
         </nav>
     )}
 </header>
