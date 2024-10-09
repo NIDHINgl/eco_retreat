@@ -1,12 +1,44 @@
 import React from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; 
+import headerBackgroundImage from "../assets/activity-bg.jpg";
+import { motion } from 'framer-motion';
+import 'animate.css';
 
 const ContactUs = () => {
-    return (
-        <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100 mt-6">
 
-            <div className="max-w-6xl mx-auto text-center mb-16">
-                <h1 className="text-center text-4xl font-serif text-customBlack mb-4">Get In Touch</h1>
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+    };
+
+    return (
+        
+        <div
+        className="relative"
+        style={{
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover',
+            minHeight: '100vh',
+        }}
+    >
+      <motion.section
+            className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
+            style={{
+                backgroundImage: `url(${headerBackgroundImage})`,
+            }}
+            initial="hidden"
+            animate="visible"
+            variants={sectionVariants}
+              transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} >
+            <div className="absolute inset-0 bg-black opacity-70"></div>
+            <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white z-10 text-center shadow-2xl">
+            Get In Touch
+
+            </h1>
+        </motion.section>
+
+            <div className="max-w-6xl mx-auto text-center mb-8 mt-8">
+                {/* <h1 className="text-center text-4xl font-serif text-customBlack mb-4">Get In Touch</h1> */}
                 <div className="w-full bg-white py-6 mb-8">
                     <p className="text-lg leading-relaxed font-light text-customBlack">
                         We'd love to hear from you!
@@ -128,7 +160,7 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

@@ -68,7 +68,6 @@ const reviews = [
 ];
 
 const CustomerReviews = () => {
-    
     const scrollContainerRef = useRef(null);
 
     useEffect(() => {
@@ -93,40 +92,42 @@ const CustomerReviews = () => {
     }, []);
 
     return (
-        <section className="py-16 px-4 bg-white">
-            <h2 className="text-3xl font-bold text-center font-serif text-customBlack mb-8">
-                Customer Reviews
-            </h2>
+        <section className="py-20 px-6 bg-gradient-to-r from-blue-50 to-blue-100 relative">
+        <h2 className="text-4xl font-extrabold text-center font-serif text-gray-900 mb-12 tracking-wide">
+            What Our Customers Say
+        </h2>
 
-            <div
-                ref={scrollContainerRef}
-                className="flex overflow-x-auto space-x-6 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 pb-4  no-scrollbar"
-            >
-                {reviews.map((review) => (
-                    <div
-                        key={review.id}
-                        className="min-w-[300px] max-w-[350px] p-4 bg-gray-100 rounded-lg shadow-lg flex-shrink-0"
-                    >
-                        <div className="flex items-center mb-4">
-                            <div>
-                                <h3 className="text-xl font-semibold font-serif text-customBlack">
-                                    {review.name}
-                                </h3>
-                                <div className="flex space-x-1">
-                                    {Array.from({ length: review.rating }).map((_, i) => (
-                                        <FaStar key={i} className="text-yellow-500" />
-                                    ))}
-                                    {Array.from({ length: 5 - review.rating }).map((_, i) => (
-                                        <FaStar key={i} className="text-gray-400" />
-                                    ))}
-                                </div>
+        <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto space-x-8 pb-6 scrollbar-hide relative"
+        >
+            {reviews.map((review) => (
+                <div
+                    key={review.id}
+                    className="min-w-[300px] max-w-[350px] p-6 bg-white bg-opacity-80 rounded-xl shadow-xl flex-shrink-0 transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
+                >
+                    <div className="flex items-center mb-4">
+                        <div>
+                            <h3 className="text-2xl font-semibold font-serif text-gray-800 mb-1">
+                                {review.name}
+                            </h3>
+                            <div className="flex space-x-1">
+                                {Array.from({ length: review.rating }).map((_, i) => (
+                                    <FaStar key={i} className="text-yellow-500" />
+                                ))}
+                                {Array.from({ length: 5 - review.rating }).map((_, i) => (
+                                    <FaStar key={i} className="text-gray-300" />
+                                ))}
                             </div>
                         </div>
-                        <p className="text-gray-600 text-sm font-light">{review.text}</p>
                     </div>
-                ))}
-            </div>
-        </section>
+                    <p className="text-gray-700 text-base font-light leading-relaxed italic">
+                        "{review.text}"
+                    </p>
+                </div>
+            ))}
+        </div>
+    </section>
     );
 };
 
