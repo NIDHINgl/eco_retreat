@@ -3,7 +3,7 @@ import image1 from '../assets/slide1.jpeg';
 import image2 from '../assets/slide2.jpeg';
 import image3 from '../assets/slide3.jpg';
 import image4 from '../assets/slide4.jpeg';
-import image5 from '../assets/slide5.jpg';
+import image5 from '../assets/slide5.JPG';
 
 const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
