@@ -1,5 +1,8 @@
 import React from 'react';
-import tentsImage from "../assets/tents.JPG";
+import home1 from "../assets/home1.jpg";
+import home2 from "../assets/home2.jpg";
+import home3 from "../assets/home3.jpeg";
+import home4 from "../assets/home4.jpg";
 
 const Details = () => {
   return (
@@ -16,7 +19,7 @@ const Details = () => {
 
       <div className="flex flex-col md:flex-row items-center py-8 border-b border-gray-200">
         <div className="md:w-1/3 mb-4 md:mb-0">
-          <img src={tentsImage} alt="Left Image" className="w-full h-auto rounded-lg shadow-md" />
+          <img src={home1} alt="Left Image" className="w-full h-auto rounded-lg shadow-md" />
         </div>
         <div className="md:w-2/3 md:pl-8">
           <h2 className="text-2xl font-serif text-customBlack mb-4" style={{ fontFamily: '"Suravaram", serif' }}>
@@ -30,7 +33,7 @@ const Details = () => {
 
       <div className="flex flex-col md:flex-row-reverse items-center py-8 border-b border-gray-200">
         <div className="md:w-1/3 mb-4 md:mb-0">
-          <img src={tentsImage} alt="Right Image" className="w-full h-auto rounded-lg shadow-md" />
+          <img src={home2} alt="Right Image" className="w-full h-auto rounded-lg shadow-md" />
         </div>
         <div className="md:w-2/3 md:pr-8">
           <h2 className="text-2xl font-serif text-customBlack mb-4" style={{ fontFamily: '"Suravaram", serif' }}>
@@ -44,7 +47,7 @@ const Details = () => {
 
       <div className="flex flex-col md:flex-row items-center py-8 border-b border-gray-200">
         <div className="md:w-1/3 mb-4 md:mb-0">
-          <img src={tentsImage} alt="Left Image" className="w-full h-auto rounded-lg shadow-md" />
+          <img src={home3} alt="Left Image" className="w-full h-auto rounded-lg shadow-md" />
         </div>
         <div className="md:w-2/3 md:pl-8">
           <h2 className="text-2xl font-serif text-customBlack mb-4" style={{ fontFamily: '"Suravaram", serif' }}>
@@ -58,7 +61,7 @@ const Details = () => {
 
       <div className="flex flex-col md:flex-row-reverse items-center py-8 border-b border-gray-200">
         <div className="md:w-1/3 mb-4 md:mb-0">
-          <img src={tentsImage} alt="Right Image" className="w-full h-auto rounded-lg shadow-md" />
+          <img src={home4} alt="Right Image" className="w-full h-auto rounded-lg shadow-md" />
         </div>
         <div className="md:w-2/3 md:pr-8">
           <h2 className="text-2xl font-serif text-customBlack mb-4" style={{ fontFamily: '"Suravaram", serif' }}>

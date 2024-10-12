@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import deluxeRoomImage from "../assets/deluxe-room.JPG";
 import tentsImage from "../assets/tents.JPG";
-import headerBackgroundImage from "../assets/activity-bg.jpg"; 
-import backgroundImage from "../assets/backgroundImage.jpg";
+import headerBackgroundImage from "../assets/activity.jpeg";
+import backgroundImage from "../assets/backgroundImage.jpeg";
 import 'animate.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer'; 

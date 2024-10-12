@@ -3,8 +3,8 @@ import Slider from 'react-slick';
 import deluxeRoomImage from "../assets/deluxe-room.JPG";
 import dormitoryImage from "../assets/dormitory.JPG";
 import privateHouseImage from "../assets/private-house.JPG";
-import headerBackgroundImage from "../assets/activity-bg.jpg";
-import backgroundImage from "../assets/backgroundImage.jpg";
+import headerBackgroundImage from "../assets/dining.png";
+import backgroundImage from "../assets/backgroundImage.jpeg";
 import tentsImage from "../assets/tents.JPG";
 import dish1Image from "../assets/tents.JPG";
 import dish2Image from "../assets/tents.JPG";
@@ -15,7 +15,7 @@ import dish6Image from "../assets/tents.JPG";
 import 'animate.css';
 import { motion } from 'framer-motion';
 
-const data = [
+const accommodationData = [
     {
         id: 1,
         images: [deluxeRoomImage, deluxeRoomImage, deluxeRoomImage],
@@ -42,7 +42,25 @@ const data = [
     },
 ];
 
-const Accommodations = () => {
+const cuisines = [
+    { name: 'South Indian', image: dish1Image, description: 'Traditional South Indian delicacies' },
+    { name: 'North Indian', image: dish2Image, description: 'Rich and spicy North Indian flavors' },
+    { name: 'Chinese', image: dish3Image, description: 'Authentic Chinese cuisine with a local twist' },
+];
+
+const icons = [
+    { name: 'Vegetarian', icon: dish4Image },
+    { name: 'Vegan', icon: dish5Image },
+    { name: 'BBQ', icon: dish6Image },
+];
+
+const diningSettings = [
+    { name: 'Indoor', image: deluxeRoomImage },
+    { name: 'Outdoor', image: dormitoryImage },
+    { name: 'Lakeside', image: tentsImage },
+];
+
+const AccommodationsAndDining = () => {
 
     const settings = {
         dots: true,
@@ -61,108 +79,94 @@ const Accommodations = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
     };
-    
-    return (
-        <div
-        className="relative"
-        style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundAttachment: 'fixed',
-            backgroundSize: 'cover',
-            minHeight: '100vh',
-        }}
-    >
-        {/* Header Section with Fixed Background Image */}
-        <motion.section
-            className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
-            style={{
-                backgroundImage: `url(${headerBackgroundImage})`,
-            }}
-            initial="hidden"
-            animate="visible"
-            variants={sectionVariants}
-              transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
-        >
-            <div className="absolute inset-0 bg-black opacity-70"></div>
-            <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white z-10 text-center shadow-2xl">
-            Accommodations and Dining
 
-            </h1>
-        </motion.section>
+    return (
+        <div className="relative" style={{ backgroundImage: `url(${backgroundImage})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', minHeight: '100vh' }}>
+            {/* Header Section with Fixed Background Image */}
+            <motion.section className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
+                style={{ backgroundImage: `url(${headerBackgroundImage})` }}
+                initial="hidden"
+                animate="visible"
+                variants={sectionVariants}
+                transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }}
+            >
+                <div className="absolute inset-0 bg-black opacity-70"></div>
+                <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white z-10 text-center shadow-2xl">
+                    Accommodations and Dining
+                </h1>
+            </motion.section>
+
+            {/* Accommodation Section */}
             <div className="w-full bg-white py-6 mb-4">
                 <div className="w-[90%] mx-auto">
                     <p className="text-lg leading-relaxed font-light text-customBlack">
-                        At SR Eco Retreat, we offer a variety of accommodation options tailored to meet the needs of families, friends, and large groups. Whether you're looking for a cozy stay, a more private setting, or an adventurous outdoor experience, we have something for everyone. Choose from our comfortable private rooms, spacious dormitories, private houses, or tent stays for an unforgettable getaway.
-                        <br /><br />
-                        While our retreat is ideal for weekend getaways or family vacations, it also serves as a refreshing option for those seeking a staycation or workation near Bangalore, blending the serenity of nature with modern comforts. After enjoying a day of adventure or relaxation, savor our farm-fresh meals, offering a delightful farm-to-table dining experience at one of the top eco-friendly resorts near Bangalore.
+                        At SR Eco Retreat, we offer a variety of accommodation options tailored to meet the needs of families, friends, and large groups...
                     </p>
                 </div>
             </div>
 
-
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {data?.map((accommodation) => (
+                {accommodationData?.map((accommodation) => (
                     <div key={accommodation.id} className="bg-white rounded-lg shadow-md p-4">
                         <Slider {...settings}>
                             {accommodation.images.map((image, index) => (
                                 <div key={index}>
-                                    <img
-                                        src={image}
-                                        alt={accommodation.title}
-                                        className="w-full h-72 object-cover rounded-lg mb-0 image-zoom"
-                                    />
+                                    <img src={image} alt={accommodation.title} className="w-full h-72 object-cover rounded-lg mb-0 image-zoom" />
                                 </div>
                             ))}
                         </Slider>
-                        <h3 className="text-2xl font-serif font-bold mb-4 text-customBlack mt-4">
-                            {accommodation.title}
-                        </h3>
-                        <p className="text-base font-sans text-customBlack">
-                            {accommodation.text}
-                        </p>
+                        <h3 className="text-2xl font-serif font-bold mb-4 text-customBlack mt-4">{accommodation.title}</h3>
+                        <p className="text-base font-sans text-customBlack">{accommodation.text}</p>
                     </div>
                 ))}
             </div>
+
+            {/* Dining Section */}
             <div className="w-full bg-white/70 backdrop-blur-lg py-12 px-8 mt-20 rounded-2xl shadow-xl">
-                <h2 className="text-center text-4xl font-semibold text-gray-800 mb-10">
-                    Dining
-                </h2>
-                <p className="text-lg leading-relaxed font-light text-gray-700 text-center mb-16 tracking-wider">
-                    Farm-Fresh Cuisine<br />
-                    Our kitchen serves farm-fresh meals with natural ingredients, offering authentic Karnataka delicacies and North Indian favorites. Enjoy food as an essential part of your experience at SR Eco Retreat.
+                <div className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
+                    style={{ backgroundImage: `url(${headerBackgroundImage})` }}
+                >
+                    <div className="absolute inset-0 bg-black opacity-70"></div>
+                    <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 text-center">
+                        Dining at SR Eco Retreat
+                    </h1>
+                </div>
+
+                <p className="text-lg text-center font-light text-gray-700 mt-8">
+                    Our dining experience offers fresh, farm-to-table meals...
                 </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-                        <div className="text-center">
-                            <img src={dish1Image} alt="South Indian" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">South Indian</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish2Image} alt="North Indian" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">North Indian</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish3Image} alt="Chinese" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Chinese</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish4Image} alt="Sea food" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Sea food</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish5Image} alt="Saffron Rice" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Saffron Rice</h3>
-                        </div>
-                        <div className="text-center">
-                            <img src={dish6Image} alt="Roasted Veg Balls" className="w-48 h-48 object-cover rounded-full mb-2 mx-auto" />
-                            <h3 className="text-xl font-cursive text-customBlack">Roasted Veg Balls</h3>
-                        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                        {cuisines.map((cuisine, index) => (
+                            <div key={index} className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                <img src={cuisine.image} alt={cuisine.name} className="w-full h-48 object-cover" />
+                                <div className="absolute inset-0 bg-black opacity-50"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-4">
+                                    <h3 className="text-xl font-bold text-white">{cuisine.name}</h3>
+                                    <p className="text-sm text-gray-200">{cuisine.description}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
+
+
+
+                <div className="mt-20">
+                    <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">Dining Settings</h2>
+                    <Slider {...settings}>
+                        {diningSettings.map((setting, index) => (
+                            <div key={index}>
+                                <img src={setting.image} alt={setting.name} className="w-full h-72 object-cover rounded-lg mb-4" />
+                                <h3 className="text-xl font-semibold text-center">{setting.name}</h3>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
-            
+
+
+            </div>
         </div>
     );
 };
 
-export default Accommodations;
+export default AccommodationsAndDining;

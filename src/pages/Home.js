@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import image1 from '../assets/slide1.jpg';
+import image1 from '../assets/slide1.jpeg';
 import image2 from '../assets/slide2.jpeg';
-import image3 from '../assets/Sliding3.jpeg';
+import image3 from '../assets/slide3.jpg';
+import image4 from '../assets/slide4.jpeg';
+import image5 from '../assets/slide5.jpg';
 
 const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,8 +13,8 @@ const Home = () => {
         { type: 'image', src: image1, description: 'Reconnect with Nature at SR Eco Retreat – Your Perfect Weekend Getaway near Bangalore!' },
         { type: 'image', src: image2, description: 'Experience Hands-On Farming and Animal Interaction at Our Eco-Friendly Farm Stay near Bangalore!' },
         { type: 'image', src: image3, description: 'Relax in Comfortable Accommodations Surrounded by Nature at One of the Best Resorts near Bangalore!' },
-        { type: 'image', src: image1, description: 'Savor Farm-Fresh, Organic Meals from Local Ingredients at Our Eco Resort near Bangalore!' },
-        { type: 'image', src: image2, description: 'Adventure Awaits: Trek, Cycle, and Explore Scenic Trails at Our Nature Resort near Bangalore!' },
+        { type: 'image', src: image4, description: 'Savor Farm-Fresh, Organic Meals from Local Ingredients at Our Eco Resort near Bangalore!' },
+        { type: 'image', src: image5, description: 'Adventure Awaits: Trek, Cycle, and Explore Scenic Trails at Our Nature Resort near Bangalore!' },
     ];
 
     const nextSlide = () => {

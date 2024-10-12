@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; 
-import headerBackgroundImage from "../assets/activity-bg.jpg";
+import headerBackgroundImage from "../assets/contactus.jpeg";
 import { motion } from 'framer-motion';
 import 'animate.css';
 
