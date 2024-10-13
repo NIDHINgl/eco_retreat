@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import deluxeRoomImage from "../assets/deluxe-room.JPG";
 import dormitoryImage from "../assets/dormitory.JPG";
@@ -63,6 +63,7 @@ const diningSettings = [
 ];
 
 const AccommodationsAndDining = () => {
+    const sliderRef = useRef(null);
     const [currentSlideFarm, setCurrentSlideFarm] = useState(0);
     const [currentSlideAdventure, setCurrentSlideAdventure] = useState(0);
     const [intervalIdFarm, setIntervalIdFarm] = useState(null); // State to hold the interval ID for farm slider
@@ -118,6 +119,14 @@ const AccommodationsAndDining = () => {
     const clearIntervalIdAdventure = () => {
         clearInterval(intervalIdAdventure);
         setIntervalIdAdventure(null); // Reset interval ID
+    };
+
+    const handlePrevDining = () => {
+        sliderRef.current.slickPrev(); 
+    };
+    
+    const handleNextDining = () => {
+        sliderRef.current.slickNext(); 
     };
 
     const settings = {
@@ -176,44 +185,47 @@ const AccommodationsAndDining = () => {
             {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-8"> */}
             
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Farm and Animal Experiences Section */}
-                    <motion.div
-                        initial="hidden"
-                        animate={inView2 ? "visible" : "hidden"}
-                        variants={sectionVariants}
-                         transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
-                        ref={ref2} // Reference for scroll detection
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                            {accommodationData[0]?.title}
-                        </h2>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+    {/* Farm and Animal Experiences Section - Vertically Centered Text */}
+    <motion.div
+        className="flex items-center"  // Flexbox for vertical centering
+        initial="hidden"
+        animate={inView2 ? "visible" : "hidden"}
+        variants={sectionVariants}
+        transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
+        ref={ref2} // Reference for scroll detection
+    >
+        <div>
+            <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
+                {accommodationData[0]?.title}
+            </h2>
+            <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
+                {accommodationData[0]?.text}
+            </p>
+        </div>
+    </motion.div>
 
-                        <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        {accommodationData[0]?.text}
-                        </p>
-                    </motion.div>
+    {/* Image Slider for Farm Experiences - Reduced Image Size */}
+    <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
+        <div className="relative w-full h-64" // Set a fixed height for the image container
+            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+        >
+            <motion.img
+                key={currentSlideFarm} // Use key to animate on slide change
+                src={images[currentSlideFarm]}
+                alt={`Farming Image ${currentSlideFarm + 1}`}
+                className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
+                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+            />
 
-                    {/* Image Slider for Farm Experiences */}
-                    <div className="relative bg-gray-100 p-4 rounded-lg group">
-                        <div className="relative"
-                            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
-                        >
-                            <motion.img
-                                key={currentSlideFarm} // Use key to animate on slide change
-                                src={images[currentSlideFarm]}
-                                alt={`Farming Image ${currentSlideFarm + 1}`}
-                                className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
-                            />
+            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
+            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+        </div>
+    </div>
+</div>
 
-                            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-                            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
-                        </div>
-                    </div>
-                </div>
             </motion.section>
             <motion.section
                 className="py-16 px-4 bg-white bg-opacity-80"
@@ -224,41 +236,46 @@ const AccommodationsAndDining = () => {
                 ref={ref3} // Reference for scroll detection
             >
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="relative bg-gray-100 p-4 rounded-lg group">
-                        <div className="relative"
-                            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
-                        >
-                            <motion.img
-                                key={currentSlideAdventure} // Use key to animate on slide change
-                                src={images[currentSlideAdventure]}
-                                alt={`Adventure Image ${currentSlideAdventure + 1}`}
-                                className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
-                            />
+    {/* Reduced Image Size */}
+    <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
+        <div className="relative w-full h-64" // Set a fixed height for the image container
+            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
+        >
+            <motion.img
+                key={currentSlideAdventure} // Use key to animate on slide change
+                src={images[currentSlideAdventure]}
+                alt={`Adventure Image ${currentSlideAdventure + 1}`}
+                className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
+                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
+            />
 
-                            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
-                            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
-                        </div>
-                    </div>
+            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
+            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
+        </div>
+    </div>
 
-                    <motion.div
-                        initial="hidden"
-                        animate={inView4 ? "visible" : "hidden"}
-                        variants={sectionVariants}
-                          transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
-                        ref={ref4} // Reference for scroll detection
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                        {accommodationData[1]?.title}
-                        </h2>
+    {/* Vertically Centered Text Content */}
+    <motion.div
+        className="flex items-center"
+        initial="hidden"
+        animate={inView4 ? "visible" : "hidden"}
+        variants={sectionVariants}
+        transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
+        ref={ref4} // Reference for scroll detection
+    >
+        <div>
+            <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
+                {accommodationData[1]?.title}
+            </h2>
+            <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
+                {accommodationData[1]?.text}
+            </p>
+        </div>
+    </motion.div>
+</div>
 
-                        <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        {accommodationData[1]?.text}
-                        </p>
-                    </motion.div>
-                </div>
             </motion.section>
             <motion.section
                 className="py-16 px-4 bg-white bg-opacity-80"
@@ -269,44 +286,48 @@ const AccommodationsAndDining = () => {
                 ref={ref5} // Reference for scroll detection
             >
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Farm and Animal Experiences Section */}
-                    <motion.div
-                        initial="hidden"
-                        animate={inView6 ? "visible" : "hidden"}
-                        variants={sectionVariants}
-                         transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
-                        ref={ref6} // Reference for scroll detection
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                        {accommodationData[2]?.title}
-                        </h2>
+<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+    {/* Farm and Animal Experiences Section - Vertically Centered Text */}
+    <motion.div
+        className="flex items-center"  // Flexbox for vertical centering
+        initial="hidden"
+        animate={inView6 ? "visible" : "hidden"}
+        variants={sectionVariants}
+        transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
+        ref={ref6} // Reference for scroll detection
+    >
+        <div>
+            <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
+                {accommodationData[2]?.title}
+            </h2>
+            <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
+                {accommodationData[2]?.text}
+            </p>
+        </div>
+    </motion.div>
 
-                        <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        {accommodationData[2]?.text}
-                        </p>
-                    </motion.div>
+    {/* Image Slider for Farm Experiences - Reduced Image Size */}
+    <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
+        <div className="relative w-full h-64" // Set a fixed height for the image container
+            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+        >
+            <motion.img
+                key={currentSlideFarm} // Use key to animate on slide change
+                src={images[currentSlideFarm]}
+                alt={`Farming Image ${currentSlideFarm + 1}`}
+                className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
+                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+            />
 
-                    {/* Image Slider for Farm Experiences */}
-                    <div className="relative bg-gray-100 p-4 rounded-lg group">
-                        <div className="relative"
-                            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
-                        >
-                            <motion.img
-                                key={currentSlideFarm} // Use key to animate on slide change
-                                src={images[currentSlideFarm]}
-                                alt={`Farming Image ${currentSlideFarm + 1}`}
-                                className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
-                            />
+            {/* Image slider controls */}
+            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
+            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+        </div>
+    </div>
+</div>
 
-                            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-                            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
-                        </div>
-                    </div>
-                </div>
             </motion.section>
 
             <motion.section
@@ -318,41 +339,46 @@ const AccommodationsAndDining = () => {
                 ref={ref7} // Reference for scroll detection
             >
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="relative bg-gray-100 p-4 rounded-lg group">
-                        <div className="relative"
-                            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
-                        >
-                            <motion.img
-                                key={currentSlideAdventure} // Use key to animate on slide change
-                                src={images[currentSlideAdventure]}
-                                alt={`Adventure Image ${currentSlideAdventure + 1}`}
-                                className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
-                            />
+    {/* Image Slider for Adventure Experiences - Reduced Image Size */}
+    <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
+        <div className="relative w-full h-64" // Set a fixed height for the image container
+            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
+        >
+            <motion.img
+                key={currentSlideAdventure} // Use key to animate on slide change
+                src={images[currentSlideAdventure]}
+                alt={`Adventure Image ${currentSlideAdventure + 1}`}
+                className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
+                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
+            />
 
-                            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
-                            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
-                        </div>
-                    </div>
+            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
+            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
+        </div>
+    </div>
 
-                    <motion.div
-                        initial="hidden"
-                        animate={inView8 ? "visible" : "hidden"}
-                        variants={sectionVariants}
-                          transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
-                        ref={ref8} // Reference for scroll detection
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
-                        {accommodationData[3]?.title}
-                        </h2>
+    {/* Vertically Centered Text Content */}
+    <motion.div
+        className="flex items-center"  // Flexbox for vertical centering
+        initial="hidden"
+        animate={inView8 ? "visible" : "hidden"}
+        variants={sectionVariants}
+        transition={{ duration: 1, ease: [0.68, -0.55, 0.27, 1.55] }} // Ease function for a more pronounced effect
+        ref={ref8} // Reference for scroll detection
+    >
+        <div>
+            <h2 className="text-3xl font-bold mb-6 text-customBlack font-serif">
+                {accommodationData[3]?.title}
+            </h2>
+            <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
+                {accommodationData[3]?.text}
+            </p>
+        </div>
+    </motion.div>
+</div>
 
-                        <p className="text-lg mb-4 text-customBlack font-light font-sans leading-relaxed">
-                        {accommodationData[3]?.text}
-                        </p>
-                    </motion.div>
-                </div>
             </motion.section>
                 {/* {accommodationData?.map((accommodation) => (
                     <div key={accommodation.id} className="bg-white rounded-lg shadow-md p-4">
@@ -398,17 +424,35 @@ const AccommodationsAndDining = () => {
 
 
 
-                <div className="mt-20">
-                    <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">Dining Settings</h2>
-                    <Slider {...settings}>
-                        {diningSettings.map((setting, index) => (
-                            <div key={index}>
-                                <img src={setting.image} alt={setting.name} className="w-full h-72 object-cover rounded-lg mb-4" />
-                                <h3 className="text-xl font-semibold text-center">{setting.name}</h3>
-                            </div>
-                        ))}
-                    </Slider>
+                    <div className="mt-20">
+    <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">Dining Settings</h2>
+    
+    <div className="relative group">
+        <Slider {...settings} ref={sliderRef}>
+            {diningSettings.map((setting, index) => (
+                <div key={index}>
+                    <img
+                        src={setting.image}
+                        alt={setting.name}
+                        className="w-full h-72 object-cover rounded-lg mb-4"
+                    />
+                    <h3 className="text-xl font-semibold text-center">{setting.name}</h3>
                 </div>
+            ))}
+        </Slider>
+
+        {/* Previous and Next Arrows */}
+        <PreviousArrow
+            onClick={handlePrevDining} // Handle previous slide
+            isVisible={true} // Make arrow always visible, or use hover logic
+        />
+        <NextArrow
+            onClick={handleNextDining} // Handle next slide
+            isVisible={true} // Make arrow always visible, or use hover logic
+        />
+    </div>
+</div>
+
 
 
             </div>
