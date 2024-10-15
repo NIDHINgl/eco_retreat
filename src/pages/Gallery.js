@@ -3,7 +3,7 @@ import { MasonryPhotoAlbum } from "react-photo-album";
 import { photos } from '../constants';
 import { NextArrow, PreviousArrow } from '../components/Arrow';
 import { motion } from 'framer-motion';
-import headerBackgroundImage from "../assets/gallery.jpeg";
+import headerBackgroundImage from "../assets/photos/others/gallery.jpeg";
 import "react-photo-album/masonry.css";
 import 'animate.css';
 

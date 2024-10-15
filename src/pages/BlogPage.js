@@ -1,8 +1,8 @@
 import React from 'react';
 import HeaderBlog from '../components/HeaderBlog';
 import Footer from '../components/Footer';
-import retreatImage from "../assets/private-house.JPG";
-import farmhouseImage from "../assets/tents.JPG";
+import retreatImage from "../assets/photos/others/slide2.jpg";
+import farmhouseImage from "../assets/photos/others/slide5.jpg";
 
 const BlogPage = () => {
   return (

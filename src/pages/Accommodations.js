@@ -1,65 +1,78 @@
 import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
-import deluxeRoomImage from "../assets/deluxe-room.JPG";
-import dormitoryImage from "../assets/dormitory.JPG";
-import privateHouseImage from "../assets/private-house.JPG";
-import headerBackgroundImage from "../assets/dining.png";
-import backgroundImage from "../assets/backgroundImage.jpeg";
-import tentsImage from "../assets/tents.JPG";
-import dish1Image from "../assets/tents.JPG";
-import dish2Image from "../assets/tents.JPG";
-import dish3Image from "../assets/tents.JPG";
-import dish4Image from "../assets/tents.JPG";
-import dish5Image from "../assets/tents.JPG";
-import dish6Image from "../assets/tents.JPG";
 import 'animate.css';
 import { motion } from 'framer-motion';
 import { NextArrow, PreviousArrow } from '../components/Arrow';
-import { useInView } from 'react-intersection-observer'; 
+import { useInView } from 'react-intersection-observer';
+
+import backgroundImage from "../assets/photos/others/backgroundImage.jpeg";
+import accommodationHeaderBackgroundImage from "../assets/photos/others/accommodation.jpeg";
+import diningHeaderBackgroundImage from "../assets/photos/others/dining.png";
+
+
+import deluxeRoomImage1 from "../assets/photos/accommodation/room/room1.jpg";
+import deluxeRoomImage2 from "../assets/photos/accommodation/room/room2.jpg";
+import deluxeRoomImage3 from "../assets/photos/accommodation/room/room3.png";
+import deluxeRoomImage4 from "../assets/photos/accommodation/room/room4.JPG";
+
+import dormitoryImage1 from "../assets/photos/accommodation/dormitory/dormitory1.jpg";
+import dormitoryImage2 from "../assets/photos/accommodation/dormitory/dormitory2.png";
+import dormitoryImage3 from "../assets/photos/accommodation/dormitory/dormitory3.png";
+
+import privateHouseImage1 from "../assets/photos/accommodation/house/house1.jpg";
+import privateHouseImage2 from "../assets/photos/accommodation/house/house2.jpg";
+import privateHouseImage3 from "../assets/photos/accommodation/house/house3.JPG";
+import privateHouseImage4 from "../assets/photos/accommodation/house/house4.png";
+
+import tentsImage1 from "../assets/photos/accommodation/tent/tent1.jpg";
+import tentsImage2 from "../assets/photos/accommodation/tent/tent2.jpeg";
+import tentsImage3 from "../assets/photos/accommodation/tent/tent3.jpg";
+
+import southIndianFoodImage from "../assets/photos/others/southIndian.jpeg";
+import northIndianFoodImage from "../assets/photos/others/northIndian.jpeg";
+import chineseFoodImage from "../assets/photos/others/chinese.jpeg";
+
+import indoor from "../assets/photos/food/dining1.JPG";
+import outdoor from "../assets/photos/food/dining5.jpg";
+import lakeside from "../assets/photos/lake/lake1.jpg";
 
 const accommodationData = [
     {
         id: 1,
-        images: [deluxeRoomImage, deluxeRoomImage, deluxeRoomImage],
+        images: [deluxeRoomImage1, deluxeRoomImage2, deluxeRoomImage3, deluxeRoomImage4],
         title: 'Private Rooms',
         text: `Ideal for couples or small families, our private rooms near Bangalore offer modern comfort with a rustic charm, perfect for those seeking weekend destinations around Bangalore.`,
     },
     {
         id: 2,
-        images: [privateHouseImage, privateHouseImage],
+        images: [privateHouseImage1, privateHouseImage2, privateHouseImage3, privateHouseImage4],
         title: 'Private House',
         text: `Enjoy a home-away-from-home in our private house stay near Bangalore, with amenities like a living room, kitchen, and more. Ideal for families seeking privacy and comfort.`,
     },
     {
         id: 3,
-        images: [dormitoryImage, dormitoryImage],
+        images: [dormitoryImage1, dormitoryImage2, dormitoryImage3],
         title: 'Dormitory',
         text: `Perfect for team outings near Bangalore, our dormitory provides a communal experience for large groups or corporate teams, offering affordability and comfort.`,
     },
     {
         id: 4,
-        images: [tentsImage, tentsImage],
+        images: [tentsImage1, tentsImage2, tentsImage3],
         title: 'Tents',
         text: `For a true camping near Bangalore experience, our tents by the lake or on the farmland offer adventure with essential amenities.`,
     },
 ];
 
 const cuisines = [
-    { name: 'South Indian', image: dish1Image, description: 'Traditional South Indian delicacies' },
-    { name: 'North Indian', image: dish2Image, description: 'Rich and spicy North Indian flavors' },
-    { name: 'Chinese', image: dish3Image, description: 'Authentic Chinese cuisine with a local twist' },
-];
-
-const icons = [
-    { name: 'Vegetarian', icon: dish4Image },
-    { name: 'Vegan', icon: dish5Image },
-    { name: 'BBQ', icon: dish6Image },
+    { name: 'South Indian', image: southIndianFoodImage, description: 'Traditional South Indian delicacies' },
+    { name: 'North Indian', image: northIndianFoodImage, description: 'Rich and spicy North Indian flavors' },
+    { name: 'Chinese', image: chineseFoodImage, description: 'Authentic Chinese cuisine with a local twist' },
 ];
 
 const diningSettings = [
-    { name: 'Indoor', image: deluxeRoomImage },
-    { name: 'Outdoor', image: dormitoryImage },
-    { name: 'Lakeside', image: tentsImage },
+    { name: 'Indoor', image: indoor },
+    { name: 'Outdoor', image: outdoor },
+    { name: 'Lakeside', image: lakeside },
 ];
 
 const AccommodationsAndDining = () => {
@@ -70,8 +83,21 @@ const AccommodationsAndDining = () => {
     const [intervalIdAdventure, setIntervalIdAdventure] = useState(null); // State to hold the interval ID for adventure slider
     const [isHoveredFarm, setIsHoveredFarm] = useState(false); // State for hover status of farm slider
     const [isHoveredAdventure, setIsHoveredAdventure] = useState(false); // State for hover status of adventure slider
-    const images = [deluxeRoomImage, tentsImage]; // Add your images here
-    const totalSlides = images.length;
+
+    const [currentSlideRoom, setCurrentSlideRoom] = useState(0);
+    const [currentSlideHouse, setCurrentSlideHouse] = useState(0);
+    const [currentSlideDormitory, setCurrentSlideDormitory] = useState(0);
+    const [currentSlideTent, setCurrentSlideTent] = useState(0);
+
+    const [intervalIdRoom, setIntervalIdRoom] = useState(null); // State to hold the interval ID for farm slider
+    const [intervalIdHouse, setIntervalIdHouse] = useState(null); // State to hold the interval ID for adventure slider
+    const [intervalIdDormitory, setIntervalIdDormitory] = useState(null); // State to hold the interval ID for farm slider
+    const [intervalIdTent, setIntervalIdTent] = useState(null); // State to hold the interval ID for adventure slider
+
+    const [isHoveredRoom, setIsHoveredRoom] = useState(false); // State for hover status of farm slider
+    const [isHoveredHouse, setIsHoveredHouse] = useState(false); // State for hover status of adventure slider
+    const [isHoveredDormitory, setIsHoveredDormitory] = useState(false); // State for hover status of farm slider
+    const [isHoveredTent, setIsHoveredTent] = useState(false); // State for hover status of adventure slider
 
     const [ref1, inView1] = useInView({ threshold: 0.1 });
     const [ref2, inView2] = useInView({ threshold: 0.1 });
@@ -82,44 +108,83 @@ const AccommodationsAndDining = () => {
     const [ref7, inView7] = useInView({ threshold: 0.1 });
     const [ref8, inView8] = useInView({ threshold: 0.1 });
 
-    const handleNextFarm = () => {
-        setCurrentSlideFarm((prevSlide) => (prevSlide + 1) % totalSlides);
-    };
+        const handleNextRoom = () => {
+            setCurrentSlideRoom((prevSlide) => (prevSlide + 1) % accommodationData[0]?.images.length);
+        };
 
-    const handlePrevFarm = () => {
-        setCurrentSlideFarm((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
-    };
+        const handlePrevRoom = () => {
+            setCurrentSlideRoom((prevSlide) => (prevSlide - 1 + accommodationData[0]?.images.length) % accommodationData[0]?.images.length);
+        };
 
-    const handleNextAdventure = () => {
-        setCurrentSlideAdventure((prevSlide) => (prevSlide + 1) % totalSlides);
-    };
+        const handleNextHouse = () => {
+            setCurrentSlideHouse((prevSlide) => (prevSlide + 1) % accommodationData[1]?.images.length);
+        };
 
-    const handlePrevAdventure = () => {
-        setCurrentSlideAdventure((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
-    };
+        const handlePrevHouse = () => {
+            setCurrentSlideAdventure((prevSlide) => (prevSlide - 1 + accommodationData[1]?.images.length) % accommodationData[1]?.images.length);
+        };
 
-    const startIntervalFarm = () => {
-        const id = setInterval(handleNextFarm, 3000); // Change images every 3 seconds
-        setIntervalIdFarm(id);
-    };
+        const startIntervalRoom = () => {
+            const id = setInterval(handleNextRoom, 3000); // Change images every 3 seconds
+            setIntervalIdRoom(id);
+        };
 
-    // Clear the interval for farm slider
-    const clearIntervalIdFarm = () => {
-        clearInterval(intervalIdFarm);
-        setIntervalIdFarm(null); // Reset interval ID
-    };
+        // Clear the interval for farm slider
+        const clearIntervalIdRoom = () => {
+            clearInterval(intervalIdRoom);
+            setIntervalIdRoom(null); // Reset interval ID
+        };
 
-    // Start automatic image changing for adventure slider
-    const startIntervalAdventure = () => {
-        const id = setInterval(handleNextAdventure, 3000); // Change images every 3 seconds
-        setIntervalIdAdventure(id);
-    };
+        // Start automatic image changing for adventure slider
+        const startIntervalHouse = () => {
+            const id = setInterval(handleNextHouse, 3000); // Change images every 3 seconds
+            setIntervalIdHouse(id);
+        };
 
-    // Clear the interval for adventure slider
-    const clearIntervalIdAdventure = () => {
-        clearInterval(intervalIdAdventure);
-        setIntervalIdAdventure(null); // Reset interval ID
-    };
+        // Clear the interval for adventure slider
+        const clearIntervalIdHouse = () => {
+            clearInterval(intervalIdHouse);
+            setIntervalIdHouse(null); // Reset interval ID
+        };
+
+            const handleNextDormitory = () => {
+                    setCurrentSlideDormitory((prevSlide) => (prevSlide + 1) % accommodationData[2]?.images.length);
+                };
+
+                const handlePrevDormitory = () => {
+                    setCurrentSlideDormitory((prevSlide) => (prevSlide - 1 + accommodationData[2]?.images.length) % accommodationData[2]?.images.length);
+                };
+
+                const handleNextTent = () => {
+                    setCurrentSlideTent((prevSlide) => (prevSlide + 1) % accommodationData[3]?.images.length);
+                };
+
+                const handlePrevTent = () => {
+                    setCurrentSlideTent((prevSlide) => (prevSlide - 1 + accommodationData[3]?.images.length) % accommodationData[3]?.images.length);
+                };
+
+                const startIntervalDormitory = () => {
+                    const id = setInterval(handleNextDormitory, 3000); // Change images every 3 seconds
+                    setIntervalIdDormitory(id);
+                };
+
+                // Clear the interval for farm slider
+                const clearIntervalIdDormitory = () => {
+                    clearInterval(intervalIdDormitory);
+                    setIntervalIdDormitory(null); // Reset interval ID
+                };
+
+                // Start automatic image changing for adventure slider
+                const startIntervalTent = () => {
+                    const id = setInterval(handleNextTent, 3000); // Change images every 3 seconds
+                    setIntervalIdTent(id);
+                };
+
+                // Clear the interval for adventure slider
+                const clearIntervalIdTent = () => {
+                    clearInterval(intervalIdTent);
+                    setIntervalIdTent(null); // Reset interval ID
+                };
 
     const handlePrevDining = () => {
         sliderRef.current.slickPrev(); 
@@ -151,7 +216,7 @@ const AccommodationsAndDining = () => {
         <div className="relative" style={{ backgroundImage: `url(${backgroundImage})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', minHeight: '100vh' }}>
             {/* Header Section with Fixed Background Image */}
             <motion.section className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
-                style={{ backgroundImage: `url(${headerBackgroundImage})` }}
+                style={{ backgroundImage: `url(${accommodationHeaderBackgroundImage})` }}
                 initial="hidden"
                 animate="visible"
                 variants={sectionVariants}
@@ -159,7 +224,7 @@ const AccommodationsAndDining = () => {
             >
                 <div className="absolute inset-0 bg-black opacity-70"></div>
                 <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white z-10 text-center shadow-2xl">
-                    Accommodations and Dining
+                    Accommodations
                 </h1>
             </motion.section>
 
@@ -186,7 +251,7 @@ const AccommodationsAndDining = () => {
             
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-    {/* Farm and Animal Experiences Section - Vertically Centered Text */}
+    {/* Private room - Vertically Centered Text */}
     <motion.div
         className="flex items-center"  // Flexbox for vertical centering
         initial="hidden"
@@ -205,23 +270,23 @@ const AccommodationsAndDining = () => {
         </div>
     </motion.div>
 
-    {/* Image Slider for Farm Experiences - Reduced Image Size */}
+    {/* Image Slider for private room Experiences - Reduced Image Size */}
     <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
         <div className="relative w-full h-64" // Set a fixed height for the image container
-            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+            onMouseEnter={() => setIsHoveredRoom(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredRoom(false)} // Reset hover state on mouse leave
         >
             <motion.img
-                key={currentSlideFarm} // Use key to animate on slide change
-                src={images[currentSlideFarm]}
-                alt={`Farming Image ${currentSlideFarm + 1}`}
+                key={currentSlideRoom} // Use key to animate on slide change
+                src={accommodationData[0]?.images[currentSlideRoom]}
+                alt={`Farming Image ${currentSlideRoom + 1}`}
                 className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
-                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+                onMouseEnter={startIntervalRoom} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdRoom} // Clear interval on mouse leave
             />
 
-            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+            <PreviousArrow onClick={handlePrevRoom} isVisible={isHoveredRoom} />
+            <NextArrow onClick={handleNextRoom} isVisible={isHoveredRoom} />
         </div>
     </div>
 </div>
@@ -239,20 +304,20 @@ const AccommodationsAndDining = () => {
     {/* Reduced Image Size */}
     <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
         <div className="relative w-full h-64" // Set a fixed height for the image container
-            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
+            onMouseEnter={() => setIsHoveredHouse(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredHouse(false)} // Reset hover state on mouse leave
         >
             <motion.img
-                key={currentSlideAdventure} // Use key to animate on slide change
-                src={images[currentSlideAdventure]}
-                alt={`Adventure Image ${currentSlideAdventure + 1}`}
+                key={currentSlideHouse} // Use key to animate on slide change
+                src={accommodationData[1]?.images[currentSlideHouse]}
+                alt={`Adventure Image ${currentSlideHouse + 1}`}
                 className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
-                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
-                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
+                onMouseEnter={startIntervalHouse} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdHouse} // Clear interval on mouse leave
             />
 
-            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
-            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
+            <PreviousArrow onClick={handlePrevHouse} isVisible={isHoveredHouse} />
+            <NextArrow onClick={handleNextHouse} isVisible={isHoveredHouse} />
         </div>
     </div>
 
@@ -309,21 +374,21 @@ const AccommodationsAndDining = () => {
     {/* Image Slider for Farm Experiences - Reduced Image Size */}
     <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
         <div className="relative w-full h-64" // Set a fixed height for the image container
-            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+            onMouseEnter={() => setIsHoveredDormitory(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredDormitory(false)} // Reset hover state on mouse leave
         >
             <motion.img
-                key={currentSlideFarm} // Use key to animate on slide change
-                src={images[currentSlideFarm]}
-                alt={`Farming Image ${currentSlideFarm + 1}`}
+                key={currentSlideDormitory} // Use key to animate on slide change
+                src={accommodationData[2]?.images[currentSlideDormitory]}
+                alt={`Farming Image ${currentSlideDormitory + 1}`}
                 className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
-                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+                onMouseEnter={startIntervalDormitory} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdDormitory} // Clear interval on mouse leave
             />
 
             {/* Image slider controls */}
-            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+            <PreviousArrow onClick={handlePrevDormitory} isVisible={isHoveredDormitory} />
+            <NextArrow onClick={handleNextDormitory} isVisible={isHoveredDormitory} />
         </div>
     </div>
 </div>
@@ -342,20 +407,20 @@ const AccommodationsAndDining = () => {
     {/* Image Slider for Adventure Experiences - Reduced Image Size */}
     <div className="relative bg-gray-100 p-4 rounded-lg group flex items-center justify-center">
         <div className="relative w-full h-64" // Set a fixed height for the image container
-            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
+            onMouseEnter={() => setIsHoveredTent(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHoveredTent(false)} // Reset hover state on mouse leave
         >
             <motion.img
-                key={currentSlideAdventure} // Use key to animate on slide change
-                src={images[currentSlideAdventure]}
-                alt={`Adventure Image ${currentSlideAdventure + 1}`}
+                key={currentSlideTent} // Use key to animate on slide change
+                src={accommodationData[3]?.images[currentSlideTent]}
+                alt={`Adventure Image ${currentSlideTent + 1}`}
                 className="w-full h-full object-cover rounded-lg transition-opacity duration-500"
-                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
-                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
+                onMouseEnter={startIntervalTent} // Start interval on mouse hover
+                onMouseLeave={clearIntervalIdTent} // Clear interval on mouse leave
             />
 
-            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
-            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
+            <PreviousArrow onClick={handlePrevTent} isVisible={isHoveredTent} />
+            <NextArrow onClick={handleNextTent} isVisible={isHoveredTent} />
         </div>
     </div>
 
@@ -397,16 +462,17 @@ const AccommodationsAndDining = () => {
             {/* Dining Section */}
             <div className="w-full bg-white/70 backdrop-blur-lg py-12 px-8 mt-20 rounded-2xl shadow-xl">
                 <div className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center flex items-center justify-center"
-                    style={{ backgroundImage: `url(${headerBackgroundImage})` }}
+                    style={{ backgroundImage: `url(${diningHeaderBackgroundImage})` }}
                 >
                     <div className="absolute inset-0 bg-black opacity-70"></div>
                     <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 text-center">
-                        Dining at SR Eco Retreat
+                        Dining
                     </h1>
                 </div>
 
                 <p className="text-lg text-center font-light text-gray-700 mt-8">
-                    Our dining experience offers fresh, farm-to-table meals...
+                    Farm-Fresh Cuisine  <br />
+                    Our kitchen serves delicious farm-fresh meals using natural ingredients from our farm, providing authentic Karnataka delicacies and North Indian favorites. Enjoy the best of eco-friendly resorts near Bangalore, where food is an integral part of the experience.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">

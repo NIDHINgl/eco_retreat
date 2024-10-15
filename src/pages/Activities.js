@@ -1,38 +1,98 @@
 import React, { useState, useEffect } from 'react';
-import deluxeRoomImage from "../assets/deluxe-room.JPG";
-import tentsImage from "../assets/tents.JPG";
-import headerBackgroundImage from "../assets/activity.jpeg";
-import backgroundImage from "../assets/backgroundImage.jpeg";
 import 'animate.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer'; 
 import { NextArrow, PreviousArrow } from '../components/Arrow';
 
+import headerBackgroundImage from "../assets/photos/others/activity.jpeg";
+import backgroundImage from "../assets/photos/others/backgroundImage.jpeg";
+
+import farmImage1 from "../assets/photos/animal/animal1.jpg";
+import farmImage2 from "../assets/photos/animal/animal10.jpg";
+import farmImage3 from "../assets/photos/animal/animal7.jpg";
+import farmImage4 from "../assets/photos/animal/animal6.jpg";
+import farmImage5 from "../assets/photos/resortPhotos/resort1.jpg";
+
+import adventureImage1 from "../assets/photos/outdoorGames/outdoorGames1.jpeg";
+import adventureImage2 from "../assets/photos/outdoorGames/outdoorGames2.jpg";
+import adventureImage3 from "../assets/photos/outdoorGames/outdoorGames3.jpg";
+import adventureImage4 from "../assets/photos/outdoorGames/outdoorGames4.jpeg";
+import adventureImage5 from "../assets/photos/outdoorGames/outdoorGames5.jpg";
+import adventureImage6 from "../assets/photos/campFire/campFire1.jpeg";
+import adventureImage7 from "../assets/photos/campFire/campFire2.png";
+import adventureImage8 from "../assets/photos/family/family11.jpg";
+
+
+import relaxImage1 from "../assets/photos/animal/animal4.jpg";
+import relaxImage2 from "../assets/photos/family/family3.jpg";
+import relaxImage3 from "../assets/photos/family/family2.jpg";
+import relaxImage4 from "../assets/photos/food/food1.jpg";
+import relaxImage5 from "../assets/photos/lake/lake1.jpg";
+import relaxImage6 from "../assets/photos/lake/lake2.jpg";
+import relaxImage7 from "../assets/photos/rainDance/rainDance1.jpg";
+import relaxImage8 from "../assets/photos/resortPhotos/resort20.jpeg";
+import relaxImage9 from "../assets/photos/resortPhotos/resort21.jpeg";
+
+import indoorImage1 from "../assets/photos/family/family7.jpg";
+import indoorImage2 from "../assets/photos/indoorGames/indoorGames1.jpg";
+import indoorImage3 from "../assets/photos/resortPhotos/resort16.jpg";
+
+import staycationImage1 from "../assets/photos/animal/animal5.jpg";
+import staycationImage2 from "../assets/photos/family/family8.jpg";
+import staycationImage3 from "../assets/photos/family/family5.jpg";
+import staycationImage4 from "../assets/photos/food/dining5.jpg";
+import staycationImage5 from "../assets/photos/resortPhotos/resort7.JPG";
+
 const Activities = () => {
     // State for both image sliders
     const [currentSlideFarm, setCurrentSlideFarm] = useState(0);
     const [currentSlideAdventure, setCurrentSlideAdventure] = useState(0);
+    const [currentSlideRelax, setCurrentSlideRelax] = useState(0);
+    const [currentSlideIndoor, setCurrentSlideIndoor] = useState(0);
+    const [currentSlideStaycation, setCurrentSlideStaycation] = useState(0);
+
     const [intervalIdFarm, setIntervalIdFarm] = useState(null); // State to hold the interval ID for farm slider
     const [intervalIdAdventure, setIntervalIdAdventure] = useState(null); // State to hold the interval ID for adventure slider
+    const [intervalIdRelax, setIntervalIdRelax] = useState(null); // State to hold the interval ID for adventure slider
+    const [intervalIdIndoor, setIntervalIdIndoor] = useState(null); // State to hold the interval ID for adventure slider
+    const [intervalIdStaycation, setIntervalIdStaycation] = useState(null); // State to hold the interval ID for adventure slider
+
     const [isHoveredFarm, setIsHoveredFarm] = useState(false); // State for hover status of farm slider
     const [isHoveredAdventure, setIsHoveredAdventure] = useState(false); // State for hover status of adventure slider
-    const images = [deluxeRoomImage, tentsImage]; // Add your images here
-    const totalSlides = images.length;
+    const [isHoveredRelax, setIsHoveredRelax] = useState(false); // State for hover status of adventure slider
+    const [isHoveredIndoor, setIsHoveredIndoor] = useState(false); // State for hover status of adventure slider
+    const [isHoveredStaycation, setIsHoveredStaycation] = useState(false); // State for hover status of adventure slider
+
+    const farmImages = [farmImage1, farmImage2, farmImage3, farmImage4, farmImage5]; // Add your images here
+    const farmImagesTotalSlides = farmImages.length;
+
+    const adventureImages = [adventureImage1, adventureImage2, adventureImage3, adventureImage4, adventureImage5, adventureImage6, adventureImage7, adventureImage8]; // Add your images here
+    const adventureImagesTotalSlides = adventureImages.length;
+
+    const relaxImages = [relaxImage1, relaxImage2, relaxImage3, relaxImage4, relaxImage5, relaxImage6, relaxImage7, relaxImage8, relaxImage9]; // Add your images here
+    const relaxImagesTotalSlides = relaxImages.length;
+
+    const indoorGamesImages = [indoorImage1, indoorImage2, indoorImage3]; // Add your images here
+    const indoorGamesImagesTotalSlides = indoorGamesImages.length;
+
+    const staycationImages = [staycationImage1, staycationImage2, staycationImage3, staycationImage4, staycationImage5]; // Add your images here
+    const staycationImagesTotalSlides = staycationImages.length;
+
 
     const handleNextFarm = () => {
-        setCurrentSlideFarm((prevSlide) => (prevSlide + 1) % totalSlides);
+        setCurrentSlideFarm((prevSlide) => (prevSlide + 1) % farmImagesTotalSlides);
     };
 
     const handlePrevFarm = () => {
-        setCurrentSlideFarm((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+        setCurrentSlideFarm((prevSlide) => (prevSlide - 1 + farmImagesTotalSlides) % farmImagesTotalSlides);
     };
 
     const handleNextAdventure = () => {
-        setCurrentSlideAdventure((prevSlide) => (prevSlide + 1) % totalSlides);
+        setCurrentSlideAdventure((prevSlide) => (prevSlide + 1) % adventureImagesTotalSlides);
     };
 
     const handlePrevAdventure = () => {
-        setCurrentSlideAdventure((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+        setCurrentSlideAdventure((prevSlide) => (prevSlide - 1 + adventureImagesTotalSlides) % adventureImagesTotalSlides);
     };
 
     // Start automatic image changing for farm slider
@@ -59,6 +119,67 @@ const Activities = () => {
         setIntervalIdAdventure(null); // Reset interval ID
     };
 
+    const handleNextRelax = () => {
+            setCurrentSlideRelax((prevSlide) => (prevSlide + 1) % relaxImagesTotalSlides);
+        };
+
+        const handlePrevRelax = () => {
+            setCurrentSlideRelax((prevSlide) => (prevSlide - 1 + relaxImagesTotalSlides) % relaxImagesTotalSlides);
+        };
+
+        const handleNextIndoor = () => {
+            setCurrentSlideIndoor((prevSlide) => (prevSlide + 1) % indoorGamesImagesTotalSlides);
+        };
+
+        const handlePrevIndoor = () => {
+            setCurrentSlideIndoor((prevSlide) => (prevSlide - 1 + indoorGamesImagesTotalSlides) % indoorGamesImagesTotalSlides);
+        };
+
+        // Start automatic image changing for farm slider
+        const startIntervalRelax = () => {
+            const id = setInterval(handleNextRelax, 3000); // Change images every 3 seconds
+            setIntervalIdRelax(id);
+        };
+
+        // Clear the interval for farm slider
+        const clearIntervalIdRelax = () => {
+            clearInterval(intervalIdRelax);
+            setIntervalIdRelax(null); // Reset interval ID
+        };
+
+        // Start automatic image changing for adventure slider
+        const startIntervalIndoor = () => {
+            const id = setInterval(handleNextIndoor, 3000); // Change images every 3 seconds
+            setIntervalIdIndoor(id);
+        };
+
+        // Clear the interval for adventure slider
+        const clearIntervalIdIndoor = () => {
+            clearInterval(intervalIdIndoor);
+            setIntervalIdIndoor(null); // Reset interval ID
+        };
+
+                const handleNextStaycation = () => {
+                    setCurrentSlideStaycation((prevSlide) => (prevSlide + 1) % staycationImagesTotalSlides);
+                };
+
+                const handlePrevStaycation = () => {
+                    setCurrentSlideRelax((prevSlide) => (prevSlide - 1 + staycationImagesTotalSlides) % staycationImagesTotalSlides);
+                };
+
+                // Start automatic image changing for farm slider
+                const startIntervalStaycation = () => {
+                    const id = setInterval(handleNextStaycation, 3000); // Change images every 3 seconds
+                    setIntervalIdStaycation(id);
+                };
+
+                // Clear the interval for farm slider
+                const clearIntervalIdStaycation = () => {
+                    clearInterval(intervalIdStaycation);
+                    setIntervalIdStaycation(null); // Reset interval ID
+                };
+
+
     // Animation variants for Framer Motion
     const sectionVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -82,6 +203,9 @@ const Activities = () => {
         return () => {
             clearIntervalIdFarm(); // Clear the farm slider interval
             clearIntervalIdAdventure(); // Clear the adventure slider interval
+            clearIntervalIdRelax();
+            clearIntervalIdIndoor();
+            clearIntervalIdStaycation();
         };
     }, []);
 
@@ -159,7 +283,7 @@ const Activities = () => {
                         >
                             <motion.img
                                 key={currentSlideFarm} // Use key to animate on slide change
-                                src={images[currentSlideFarm]}
+                                src={farmImages[currentSlideFarm]}
                                 alt={`Farming Image ${currentSlideFarm + 1}`}
                                 className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
                                 onMouseEnter={startIntervalFarm} // Start interval on mouse hover
@@ -190,7 +314,7 @@ const Activities = () => {
                         >
                             <motion.img
                                 key={currentSlideAdventure} // Use key to animate on slide change
-                                src={images[currentSlideAdventure]}
+                                src={adventureImages[currentSlideAdventure]}
                                 alt={`Adventure Image ${currentSlideAdventure + 1}`}
                                 className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
                                 onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
@@ -254,23 +378,23 @@ const Activities = () => {
                         </p>
                     </motion.div>
 
-                    {/* Image Slider for Farm Experiences */}
+                    {/* Image Slider for Relax Experiences */}
                     <div className="relative bg-gray-100 p-4 rounded-lg group">
                         <div className="relative"
-                            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+                            onMouseEnter={() => setIsHoveredRelax(true)} // Set hover state on mouse enter
+                            onMouseLeave={() => setIsHoveredRelax(false)} // Reset hover state on mouse leave
                         >
                             <motion.img
-                                key={currentSlideFarm} // Use key to animate on slide change
-                                src={images[currentSlideFarm]}
-                                alt={`Farming Image ${currentSlideFarm + 1}`}
+                                key={currentSlideRelax} // Use key to animate on slide change
+                                src={relaxImages[currentSlideRelax]}
+                                alt={`Relaxing Image ${currentSlideRelax + 1}`}
                                 className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+                                onMouseEnter={startIntervalRelax} // Start interval on mouse hover
+                                onMouseLeave={clearIntervalIdRelax} // Clear interval on mouse leave
                             />
 
-                            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-                            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+                            <PreviousArrow onClick={handlePrevRelax} isVisible={isHoveredRelax} />
+                            <NextArrow onClick={handleNextRelax} isVisible={isHoveredRelax} />
                         </div>
                     </div>
                 </div>
@@ -287,20 +411,20 @@ const Activities = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="relative bg-gray-100 p-4 rounded-lg group">
                         <div className="relative"
-                            onMouseEnter={() => setIsHoveredAdventure(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredAdventure(false)} // Reset hover state on mouse leave
+                            onMouseEnter={() => setIsHoveredIndoor(true)} // Set hover state on mouse enter
+                            onMouseLeave={() => setIsHoveredIndoor(false)} // Reset hover state on mouse leave
                         >
                             <motion.img
-                                key={currentSlideAdventure} // Use key to animate on slide change
-                                src={images[currentSlideAdventure]}
-                                alt={`Adventure Image ${currentSlideAdventure + 1}`}
+                                key={currentSlideIndoor} // Use key to animate on slide change
+                                src={indoorGamesImages[currentSlideIndoor]}
+                                alt={`Indoor Games Image ${currentSlideIndoor + 1}`}
                                 className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalAdventure} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdAdventure} // Clear interval on mouse leave
+                                onMouseEnter={startIntervalIndoor} // Start interval on mouse hover
+                                onMouseLeave={clearIntervalIdIndoor} // Clear interval on mouse leave
                             />
 
-                            <PreviousArrow onClick={handlePrevAdventure} isVisible={isHoveredAdventure} />
-                            <NextArrow onClick={handleNextAdventure} isVisible={isHoveredAdventure} />
+                            <PreviousArrow onClick={handlePrevIndoor} isVisible={isHoveredIndoor} />
+                            <NextArrow onClick={handleNextIndoor} isVisible={isHoveredIndoor} />
                         </div>
                     </div>
 
@@ -335,7 +459,7 @@ const Activities = () => {
             >
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Farm and Animal Experiences Section */}
+                    {/* staycation and workation Experiences Section */}
                     <motion.div
                         initial="hidden"
                         animate={inView10 ? "visible" : "hidden"}
@@ -359,20 +483,20 @@ const Activities = () => {
                     {/* Image Slider for Farm Experiences */}
                     <div className="relative bg-gray-100 p-4 rounded-lg group">
                         <div className="relative"
-                            onMouseEnter={() => setIsHoveredFarm(true)} // Set hover state on mouse enter
-                            onMouseLeave={() => setIsHoveredFarm(false)} // Reset hover state on mouse leave
+                            onMouseEnter={() => setIsHoveredStaycation(true)} // Set hover state on mouse enter
+                            onMouseLeave={() => setIsHoveredStaycation(false)} // Reset hover state on mouse leave
                         >
                             <motion.img
-                                key={currentSlideFarm} // Use key to animate on slide change
-                                src={images[currentSlideFarm]}
-                                alt={`Farming Image ${currentSlideFarm + 1}`}
+                                key={currentSlideStaycation} // Use key to animate on slide change
+                                src={staycationImages[currentSlideStaycation]}
+                                alt={`Staycation Image ${currentSlideStaycation + 1}`}
                                 className="w-full h-auto object-cover rounded-lg transition-opacity duration-500"
-                                onMouseEnter={startIntervalFarm} // Start interval on mouse hover
-                                onMouseLeave={clearIntervalIdFarm} // Clear interval on mouse leave
+                                onMouseEnter={startIntervalStaycation} // Start interval on mouse hover
+                                onMouseLeave={clearIntervalIdStaycation} // Clear interval on mouse leave
                             />
 
-                            <PreviousArrow onClick={handlePrevFarm} isVisible={isHoveredFarm} />
-                            <NextArrow onClick={handleNextFarm} isVisible={isHoveredFarm} />
+                            <PreviousArrow onClick={handlePrevStaycation} isVisible={isHoveredStaycation} />
+                            <NextArrow onClick={handleNextStaycation} isVisible={isHoveredStaycation} />
                         </div>
                     </div>
                 </div>

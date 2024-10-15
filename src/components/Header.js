@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom'; 
-import Logo from '../assets/eco-retreat.svg';
+import Logo from "../assets/photos/others/eco-retreat.svg";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
