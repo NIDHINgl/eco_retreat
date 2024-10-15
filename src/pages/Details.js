@@ -1,8 +1,8 @@
 import React from 'react';
-import home1 from "../assets/photos/others/home1.jpg";
-import home2 from "../assets/photos/others/home2.jpg";
+import home1 from "../assets/photos/others/home1.jpeg";
+import home2 from "../assets/photos/others/home2.jpeg";
 import home3 from "../assets/photos/others/home3.jpeg";
-import home4 from "../assets/photos/others/home4.jpg";
+import home4 from "../assets/photos/others/home4.jpeg";
 
 const Details = () => {
   return (
