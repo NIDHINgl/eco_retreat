@@ -34,7 +34,7 @@ import relaxImage8 from "../assets/photos/resortPhotos/resort20.jpeg";
 import relaxImage9 from "../assets/photos/resortPhotos/resort21.jpeg";
 
 import indoorImage1 from "../assets/photos/family/family7.jpg";
-import indoorImage2 from "../assets/photos/indoorGames/indoorGames1.jpg";
+import indoorImage2 from "../assets/photos/indoorGames/indoorGames3.jpeg";
 import indoorImage3 from "../assets/photos/resortPhotos/resort16.jpg";
 
 import staycationImage1 from "../assets/photos/animal/animal5.jpg";
