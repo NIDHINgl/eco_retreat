@@ -26,12 +26,16 @@ const Footer = () => {
         </a>
       </div>
       <p className="mt-4">
-        {isMobileOrTablet ? (
-          <a href={`tel:+91-6361120392`}>Contact us: +91-6361120392</a>
-        ) : (
-          <span>Contact us: +91-6361120392</span>
-        )}
-      </p>
+              {isMobileOrTablet ? (
+                <a href={`tel:+91-6361120392`}>
+                  Contact us: +91-6361120392 <br /> <span className="font-light">(Ramesh C R)</span>
+                </a>
+              ) : (
+                <span>
+                  Contact us: +91-6361120392 <span className="font-light">(Ramesh C R)</span>
+                </span>
+              )}
+            </p>
     </footer>
   );
 };

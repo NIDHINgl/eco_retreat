@@ -58,10 +58,14 @@ const ContactUs = () => {
                     <ul className="space-y-4 text-lg">
                         <li className="flex items-center space-x-3">
                             <FaPhoneAlt className="text-blue-600" />
-                            <a href="tel:+916361120392" className="hover:text-blue-600 transition duration-200 ease-in-out">
-                                +91-6361120392
-                            </a>
+                            <div className="flex flex-col">
+                                <span className="font-semibold">Ramesh C R</span>
+                                <a href="tel:+916361120392" className="hover:text-blue-600 transition duration-200 ease-in-out">
+                                    +91-6361120392
+                                </a>
+                            </div>
                         </li>
+
                         <li className="flex items-center space-x-3">
                             <FaEnvelope className="text-red-600" />
                             <a href="mailto:Info@srecoretreat.com" className="hover:text-red-600 transition duration-200 ease-in-out">
