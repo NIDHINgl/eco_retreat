@@ -35,8 +35,8 @@ const Header = () => {
 
     return (
         <header
-    className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${isHome && !isScrolled ? 'bg-transparent py-6' : 'bg-customBlack shadow-lg py-4'
-        }`} 
+    className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${isHome && !isScrolled ? 'bg-customBlack shadow-lg py-4' : 'bg-customBlack shadow-lg py-4'
+        }`}
 >
     <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
         <div className="flex items-center">
