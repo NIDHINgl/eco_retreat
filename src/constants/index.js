@@ -41,10 +41,24 @@ import image39 from "../assets/photos/resortPhotos/resort22.jpeg";
 import image40 from "../assets/photos/resortPhotos/resort23.jpeg";
 import image41 from "../assets/photos/resortPhotos/resort24.jpeg";
 import image42 from "../assets/photos/resortPhotos/resort25.jpeg";
+import sunrise_view from "../assets/photos/resortPhotos/sunrise_view.jpeg";
+import bamboo_area from "../assets/photos/resortPhotos/bamboo_area.jpeg";
+import bamboo_forest from "../assets/photos/resortPhotos/bamboo_forest.jpeg";
+import night_timepass from "../assets/photos/resortPhotos/night_timepass.jpeg";
+import big_trees from "../assets/photos/resortPhotos/big_trees.jpeg";
+import evening_sitting_area from "../assets/photos/resortPhotos/evening_sitting_area.jpeg";
+import night_sitting_area from "../assets/photos/resortPhotos/night_sitting_area.jpeg";
+import night_walkway from "../assets/photos/resortPhotos/night_walkway.jpeg";
+import pictographic_bamboo_forest from "../assets/photos/resortPhotos/pictographic_bamboo_forest.jpeg";
+import night_view from "../assets/photos/resortPhotos/night_view.jpeg";
+import sunrise from "../assets/photos/resortPhotos/sunrise.jpeg";
+import bamboo_plantation from "../assets/photos/resortPhotos/bamboo_plantation.jpeg";
 
 import image43 from "../assets/photos/campFire/campFire1.jpeg";
 import image44 from "../assets/photos/campFire/campFire2.png";
 import image45 from "../assets/photos/campFire/campFire3.jpg";
+import campFire from "../assets/photos/campFire/campFire.jpeg";
+import family_campFire from "../assets/photos/campFire/family_campFire.jpeg";
 
 import image46 from "../assets/photos/animal/animal1.jpg";
 import image47 from "../assets/photos/animal/animal2.jpg";
@@ -102,10 +116,14 @@ import image90 from "../assets/photos/outdoorGames/outdoorGames7.jpg";
 import image91 from "../assets/photos/outdoorGames/outdoorGames8.jpeg";
 import image92 from "../assets/photos/outdoorGames/outdoorGames9.jpeg";
 import image93 from "../assets/photos/outdoorGames/outdoorGames10.jpeg";
+import family_mud_volleyball from "../assets/photos/outdoorGames/family_mud_volleyball.jpeg";
+import pet_friendly_mud_volleyball from "../assets/photos/outdoorGames/pet_friendly_mud_volleyball.jpeg";
 
 import image94 from "../assets/photos/rainDance/rainDance1.jpg";
 import image95 from "../assets/photos/rainDance/rainDance2.jpg";
 import image96 from "../assets/photos/rainDance/rainDance3.jpg";
+import rain_dance from "../assets/photos/rainDance/rain_dance.jpeg";
+import rain_dance_family from "../assets/photos/rainDance/rain_dance_family.jpeg";
 
 
 
@@ -320,7 +338,66 @@ export const photos = [
        src: image42,
        width: 1280,
        height: 960,
-     },
+     },{
+           src: sunrise_view,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: bamboo_area,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: bamboo_forest,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: night_timepass,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: big_trees,
+           width: 960,
+           height: 1280,
+         },
+         {
+           src: evening_sitting_area,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: night_sitting_area,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: night_walkway,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: pictographic_bamboo_forest,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: night_view,
+           width: 960,
+           height: 1280,
+         },
+         {
+           src: sunrise,
+           width: 1280,
+           height: 960,
+         },
+         {
+           src: bamboo_plantation,
+           width: 1280,
+           height: 960,
+         },
      {
        src: image43,
        width: 960,
@@ -336,6 +413,16 @@ export const photos = [
        width: 4240,
        height: 2832,
      },
+     {
+            src: campFire,
+            width: 960,
+            height: 1280,
+          },
+          {
+                 src: family_campFire,
+                 width: 960,
+                 height: 1280,
+               },
      {
        src: image46,
        width: 1200,
@@ -578,6 +665,16 @@ export const photos = [
        height: 960,
      },
     {
+           src: family_mud_volleyball,
+           width: 1280,
+           height: 960,
+    },
+    {
+           src: pet_friendly_mud_volleyball,
+           width: 1280,
+           height: 960,
+    },
+    {
         src: image94,
         width: 2550,
         height: 1379,
@@ -592,6 +689,17 @@ export const photos = [
         width: 2340,
         height: 1169,
       },
+     {
+             src: rain_dance,
+             width: 960,
+             height: 1280,
+     },
+     {
+             src: rain_dance_family,
+             width: 960,
+             height: 1280,
+     },
+
 
 ]
 
